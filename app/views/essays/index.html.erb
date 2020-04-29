@@ -26,7 +26,7 @@
         <td class="align-middle"><%= essay.student_name %></td>
         <td class="align-middle"><%= essay.applicant_type %></td>
         <td class="align-middle"><%= essay.country_applying %></td>
-        <td class="align-middle"><%= link_to "Download", root_path %></td>
+        <td class="align-middle"><%= link_to "Download", essay.attachment_url %></td>
         <td class="align-middle">
           <% if essay.user %>
             <%= essay.reviewer_name %>

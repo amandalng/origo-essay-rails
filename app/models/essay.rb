@@ -10,6 +10,8 @@ class Essay < ApplicationRecord
   validates :word_count, presence: true, :numericality => { :greater_than_or_equal_to => 100 }
   # validates :essay_submission, presence: true
 
+  mount_uploader :attachment, AttachmentUploader
+
   def essay_price
     if applicant_type == "Undergraduate"
       if word_count <= 250

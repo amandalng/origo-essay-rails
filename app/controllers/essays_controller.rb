@@ -9,7 +9,7 @@ class EssaysController < ApplicationController
     @essay = Essay.new(essay_params)
 
     if @essay.save
-      redirect_to confirmation_essay_path(@essay)
+      redirect_to confirmation_essay_path(@essay), notice: "Successfully uploaded."
     else
       render "new"
     end
@@ -44,6 +44,6 @@ class EssaysController < ApplicationController
   private
 
   def essay_params
-    params.require(:essay).permit(:student_name, :email, :applicant_type, :country_applying, :university_applying, :program_applying, :prompt, :word_count, :notes)
+    params.require(:essay).permit(:student_name, :email, :applicant_type, :country_applying, :university_applying, :program_applying, :prompt, :word_count, :notes, :attachment)
   end
 end

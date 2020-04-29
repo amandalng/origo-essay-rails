@@ -9,6 +9,11 @@
   <%= f.input :program_applying, label: "Program you're applying to (if applicable)" %>
   <%= f.input :prompt, label: "Essay prompt" %>
   <%= f.input :word_count, label: "Essay word count", placeholder: "100 - 1,000" %>
+  <br>
+  <%= f.label :attachment, label: "Please upload your essay." %>
+  <%= f.file_field :attachment %>
+  <br>
+  <br>
   <%= f.input :notes, label: "Any additional remarks?", placeholder: "E.g. Having some trouble with essay organization - would appreciate feedback focused on essay structure!" %>
 
   <div class="d-flex align-items-center justify-content-center  my-4">

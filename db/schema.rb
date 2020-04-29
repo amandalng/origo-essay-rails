@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_28_132740) do
+ActiveRecord::Schema.define(version: 2020_04_29_031841) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 2020_04_28_132740) do
     t.string "program_applying"
     t.text "prompt"
     t.integer "word_count"
-    t.string "essay_submission"
+    t.string "attachment"
     t.text "notes"
     t.boolean "received", default: true
     t.boolean "assigned", default: false
