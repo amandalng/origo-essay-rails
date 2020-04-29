@@ -1,4 +1,6 @@
-<h1 class="mb-4">Essay Dashboard</h1>
+<h4 class="text-center">Hello, <%= current_user.full_name %>!</h4>
+<h1 class="mb-5">Here's your Dashboard</h1>
+
 
 <table class="table">
   <thead class="thead-dark">
@@ -31,7 +33,7 @@
           <% if essay.user %>
             <%= essay.reviewer_name %>
           <% else %>
-            <%= link_to "Assign Reviewer", root_path %>
+            -
           <% end %>
         </td>
         <td class="align-middle"><%= essay.date_submitted %></td>

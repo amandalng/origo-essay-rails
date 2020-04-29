@@ -11,6 +11,7 @@ class Essay < ApplicationRecord
   # validates :essay_submission, presence: true
 
   mount_uploader :attachment, AttachmentUploader
+  validates :attachment, presence: true
 
   def essay_price
     if applicant_type == "Undergraduate"
@@ -52,7 +53,7 @@ class Essay < ApplicationRecord
 
   def next_step
     if completed?
-      "Done!"
+      "Done"
     elsif meeting_scheduled?
       "Mark meeting completed"
     elsif reviewed?
@@ -60,7 +61,7 @@ class Essay < ApplicationRecord
     elsif assigned?
       "Mark essay reviewed"
     else
-      "Mark reviewer assigned"
+      "Assign reviewer"
     end
   end
 
