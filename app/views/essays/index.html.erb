@@ -48,16 +48,18 @@
         <td class="align-middle">
           <% if essay.completed? %>
             -
-          <% elsif essay.meeting_scheduled? %>
-            <%= link_to essay.next_step, root_path %>
-          <% elsif essay.meeting_scheduled? %>
-            <%= link_to essay.next_step, root_path %>
-          <% elsif essay.reviewed? %>
-            <%= link_to essay.next_step, root_path %>
-          <% elsif essay.assigned? %>
+          <%# elsif essay.meeting_scheduled? %>
+            <%#= link_to essay.next_step, root_path %>
+          <%# elsif essay.meeting_scheduled? %>
+            <%#= link_to essay.next_step, root_path %>
+          <%# elsif essay.reviewed? %>
+            <%#= link_to essay.next_step, root_path %>
+          <%# elsif essay.assigned? %>
+            <%#= link_to essay.next_step, root_path %>
+          <% elsif essay.assigned == false %>
             <%= link_to essay.next_step, root_path %>
           <% else %>
-            <%= link_to essay.next_step, root_path %>
+            <%= link_to essay.next_step, user_essay_path(current_user, essay), :method => :patch %>
           <% end %>
         </td>
       </tr>

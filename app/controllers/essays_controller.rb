@@ -27,12 +27,6 @@ class EssaysController < ApplicationController
     @essay = Essay.find(params[:id])
   end
 
-  def edit
-  end
-
-  def update
-  end
-
   def confirmation
     @essay = Essay.find(params[:id])
   end
@@ -40,22 +34,21 @@ class EssaysController < ApplicationController
   def pricing
   end
 
-  def mark_complete
-    @essay.find(params[:id])
-    @essay.completed = true
+  def mark
+    @essay = Essay.find(params[:id])
+    if @essay.meeting_scheduled?
+      @essay.completed = true
+    elsif @essay.reviewed?
+      @essay.meeting_scheduled = true
+    elsif @essay.assigned?
+      @essay.reviewed = true
+    elsif @essay.received?
+      @essay.assigned = true
+    end
+    # raise
     @essay.save
-  end
 
-  def mark_meeting_scheduled
-    @essay.find(params[:id])
-    @essay.meeting_scheduled = true
-    @essay.save
-  end
-
-  def mark_essay_reviewed
-    @essay.find(params[:id])
-    @essay.reviewed = true
-    @essay.save
+    redirect_to user_essays_path(current_user)
   end
 
   private
