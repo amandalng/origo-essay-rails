@@ -1,0 +1,13 @@
+.main-btn {
+  padding: 8px 20px;
+  background-color: $dark-teal;
+  opacity: 90%;
+  color: white;
+  border-radius: 50px;
+}
+
+.main-btn:hover {
+  text-decoration: none;
+  color: $light-teal;
+  opacity: 100%;
+}

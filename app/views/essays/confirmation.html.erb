@@ -1,0 +1,15 @@
+<h2 class="mb-4">Your essay has been submitted!</h2>
+
+<h4 class="mb-3">Submission Details</h4>
+<p class="mb-0">Student name: <%= @essay.student_name %></p>
+<p class="mb-0">Email: <%= @essay.email %></p>
+<p class="mb-0">Applicant type: <%= @essay.applicant_type %></p>
+<p>Country Applying To: <%= @essay.country_applying %></p>
+
+<p class="mb-0">Essay prompt: <%= @essay.prompt %></p>
+<p class="mb-0">Essay word count: <%= @essay.word_count %> words</p>
+<p>Price: $<%= @essay.essay_price %></p>
+
+<p>Shortly, we'll connect you to the reviewer assigned to help you take this essay across the finish line!</p>
+
+<%= link_to "Back to Home", root_path, class: "main-btn" %>

@@ -10,10 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_28_062701) do
+ActiveRecord::Schema.define(version: 2020_04_28_132740) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "essays", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "student_name"
+    t.string "email"
+    t.string "applicant_type"
+    t.string "country_applying"
+    t.string "university_applying"
+    t.string "program_applying"
+    t.text "prompt"
+    t.integer "word_count"
+    t.string "essay_submission"
+    t.text "notes"
+    t.boolean "received", default: true
+    t.boolean "assigned", default: false
+    t.boolean "reviewed", default: false
+    t.boolean "meeting_scheduled", default: false
+    t.boolean "completed", default: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_essays_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -23,8 +45,11 @@ ActiveRecord::Schema.define(version: 2020_04_28_062701) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "administrator", default: false
+    t.string "full_name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "essays", "users"
 end
