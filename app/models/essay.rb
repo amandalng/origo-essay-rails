@@ -3,13 +3,11 @@ class Essay < ApplicationRecord
 
   validates :student_name, presence: true, :length => { :minimum => 2 }
   validates :email, presence: true, :format => { :with => /[^@]+@[^\.]+\..+/,
-    :message => "Please input a proper email" }
-  validates :applicant_type, presence: true, :inclusion => { :in => %w(Undergraduate Graduate),
-    :message => "Please select Undergraduate or Graduate" }
-  validates :country_applying, presence: true, :inclusion => { :in => %w(US CA UK Other),
-    :message => "Please select US, CA, UK, or Other" }
+    :message => "must be in proper format (e.g. john@mgmail.com)" }
+  validates :applicant_type, presence: true, :inclusion => { :in => %w(Undergraduate Graduate) }
+  validates :country_applying, presence: true, :inclusion => { :in => %w(US CA UK Other) }
   validates :prompt, presence: true, :length => { :minimum => 2 }
-  validates :word_count, presence: true, :numericality => { :greater_than_or_equal_to => 100, :message => "Essay must be greater than 100 words." }
+  validates :word_count, presence: true, :numericality => { :greater_than_or_equal_to => 100 }
   # validates :essay_submission, presence: true
 
   def essay_price

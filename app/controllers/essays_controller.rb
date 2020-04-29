@@ -7,9 +7,12 @@ class EssaysController < ApplicationController
 
   def create
     @essay = Essay.new(essay_params)
-    @essay.save
 
-    redirect_to confirmation_essay_path(@essay)
+    if @essay.save
+      redirect_to confirmation_essay_path(@essay)
+    else
+      render "new"
+    end
   end
 
   def index
@@ -32,6 +35,10 @@ class EssaysController < ApplicationController
 
   def confirmation
     @essay = Essay.find(params[:id])
+  end
+
+  def assign_reviewer
+
   end
 
   private
