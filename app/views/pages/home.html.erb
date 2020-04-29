@@ -1,9 +1,28 @@
-<h1 class="mb-5">Origo Essay Review</h1>
+<h1 class="mb-3">Origo Essay Reviews</h1>
 
-<h3 class="mb-4 text-center">How It Works</h3>
-<p><strong>1) Submit your essay:</strong> Click the button below and upload the essay you'd like reviewed! The price of our service is based on the type of applicant you are (undergraduate or graduate), and the length of your essay. Please see pricing details <%= link_to "here", root_path %>.</p>
-<p><strong>2) Meet your assigned reviewer:</strong> We'll send you details on who you'll be working with to finalize your essay. This reviewer will be determined according to where you're applying and what program you're applying for.</p>
-<p><strong>3) Receive feedback:</strong> Give your reviewer 24 hours to complete a review of your essay - this will include corrections to spelling and grammar, suggestions on content, and feedback regarding essay concept and structure.</p>
-<p class="mb-5"><strong>4) Finalize your essay:</strong> Finalize your essay with a 1.5- to 2- hour session to understand, discuss, and incorporate feedback received on your essay. By the end of this session, you should have an essay that's ready for submission!</p>
+<h3 class="text-center">How It Works</h3>
 
-<%= link_to "Submit an Essay", new_essay_path, class: "main-btn mt-4" %>
+<div class="center mt-5 mb-2">
+  <div>
+      <div class="box-container">
+        <p class="number">1</p>
+        <strong>Submit your essay</strong><br>Click the button below and upload the essay you'd like reviewed! The price of our service is based on the type of applicant you are (undergraduate or graduate), and the length of your essay. Please see pricing details <%= link_to "here", pricing_essays_path %>.
+      </div>
+      <div class="box-container">
+        <p class="number">2</p>
+        <strong>Meet your reviewer</strong><br>We'll send you details of who you'll be working with to fix up your essay. This reviewer will be determined according to where you're applying and what program you're applying for.
+      </div>
+      <div class="box-container">
+        <p class="number">3</p>
+        <strong>Receive feedback</strong><br>Give your reviewer 24 hours to complete a review of your essay - this will include corrections to spelling and grammar, suggestions on content, and feedback regarding essay concept and structure.
+      </div>
+      <div class="box-container">
+        <p class="number">4</p>
+        <strong>Finalize your essay</strong><br>Finalize your essay with a 1.5- to 2- hour session to understand, discuss, and incorporate feedback received on your essay. By the end of this session, you should have an essay that's ready for submission!
+      </div>
+  </div>
+</div>
+
+<div class="center">
+  <%= link_to "Submit an Essay", new_essay_path, class: "main-btn" %>
+</div>

@@ -7,6 +7,9 @@ Rails.application.routes.draw do
     resources :essays, only: [:index, :show, :edit, :update, :destroy]
   end
   resources :essays, only: [:new, :create] do
+    collection do
+      get 'pricing'
+    end
     member do
       get 'confirmation'
     end

@@ -66,11 +66,11 @@ class Essay < ApplicationRecord
   end
 
   def date_submitted
-    created_at.strftime("%Y-%m-%d, %H:%M")
+    created_at.strftime("%Y-%m-%d")
   end
 
   def deadline
-    (created_at + 5.days).strftime("%Y-%m-%d, %H:%M")
+    (created_at + 5.days).strftime("%Y-%m-%d")
   end
 
   def reviewer_name

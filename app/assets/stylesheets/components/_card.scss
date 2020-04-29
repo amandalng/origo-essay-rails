@@ -1,0 +1,44 @@
+.price-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 12px;
+}
+
+.price-card {
+  height: 250px;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.price-card p {
+  margin: 0;
+}
+
+.price-card .size {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  border: 2px solid $light-teal;
+  background-color: $light-teal;
+  font-size: 36px;
+  font-weight: bolder;
+  margin: 0 auto;
+  margin-bottom: 16px;
+}
+
+.price-card .price {
+  border-radius: 4px;
+  padding: 4px 12px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: $lime;
+  font-size: 18px;
+  // font-weight: bolder;
+  // margin: 0 auto;
+  // margin-bottom: 16px;
+}

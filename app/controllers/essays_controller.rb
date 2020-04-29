@@ -1,5 +1,5 @@
 class EssaysController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:new, :create, :confirmation]
+  skip_before_action :authenticate_user!, only: [:new, :create, :confirmation, :pricing]
 
   def new
     @essay = Essay.new
@@ -37,8 +37,25 @@ class EssaysController < ApplicationController
     @essay = Essay.find(params[:id])
   end
 
-  def assign_reviewer
+  def pricing
+  end
 
+  def mark_complete
+    @essay.find(params[:id])
+    @essay.completed = true
+    @essay.save
+  end
+
+  def mark_meeting_scheduled
+    @essay.find(params[:id])
+    @essay.meeting_scheduled = true
+    @essay.save
+  end
+
+  def mark_essay_reviewed
+    @essay.find(params[:id])
+    @essay.reviewed = true
+    @essay.save
   end
 
   private

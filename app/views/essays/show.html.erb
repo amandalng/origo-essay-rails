@@ -26,9 +26,13 @@
   <p class="mt-2">Price: $<%= @essay.essay_price %></p>
 </div>
 
-<div class="mini-container">
+<div class="mini-container mb-5">
   <h5 class="text-center">Status</h5>
   <p>Reviewer: <%= @essay.reviewer_name %></p>
   <p>Status: <%= @essay.essay_status %></p>
   <p>Next Step: <%= @essay.next_step %></p>
+</div>
+
+<div class="center">
+  <%= link_to "Back to Dashboard", user_essays_path(current_user), class: "main-btn" %>
 </div>

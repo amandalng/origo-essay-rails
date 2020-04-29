@@ -22,8 +22,12 @@
       <p>$</p>
       <p class="price">0</p>
     </div>
-    <%= link_to "See Pricing Details", root_path, class: "ml-3 pricing-details" %>
+    <%= link_to "See Pricing Details", pricing_essays_path, class: "ml-3 pricing-details" %>
   </div>
 
-  <%= f.button :submit, "Submit my Essay", class: "main-btn" %>
+  <div class="center">
+    <%= f.button :submit, "Submit Essay", class: "main-btn" %>
+  </div>
 <% end %>
+
+<%= javascript_pack_tag "price" %>
