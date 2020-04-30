@@ -31,7 +31,19 @@ class EssaysController < ApplicationController
     @essay = Essay.find(params[:id])
   end
 
-  def pricing
+  def edit
+    @user = current_user
+    @essay = Essay.find(params[:id])
+    @reviewers = User.all
+
+    @reviewer_names = []
+    @reviewers.each do |reviewer|
+      @reviewer_names << reviewer.full_name
+    end
+    # raise
+  end
+
+  def update
   end
 
   def mark
@@ -48,6 +60,9 @@ class EssaysController < ApplicationController
     @essay.save
 
     redirect_to user_essays_path(current_user)
+  end
+
+  def pricing
   end
 
   private

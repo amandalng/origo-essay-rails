@@ -9,11 +9,11 @@
       <th scope="col">Applicant name</th>
       <th scope="col">Applicant type</th>
       <th scope="col">Country</th>
-      <th scope="col">Reviewer</th>
       <% if current_user.administrator == true %>
         <th scope="col">Date Submitted</th>
       <% end %>
       <th scope="col">Deadline</th>
+      <th scope="col">Reviewer</th>
       <th scope="col">Assigned</th>
       <th scope="col">Reviewed</th>
       <th scope="col">Meeting Scheduled</th>
@@ -37,6 +37,8 @@
         <td class="align-middle"><%= essay.student_name %></td>
         <td class="align-middle"><%= essay.applicant_type %></td>
         <td class="align-middle"><%= essay.country_applying %></td>
+        <td class="align-middle"><%= essay.date_submitted %></td>
+        <td class="align-middle"><%= essay.deadline %></td>
         <% if current_user.administrator == true %>
           <td class="align-middle">
             <% if essay.user %>
@@ -46,8 +48,6 @@
             <% end %>
           </td>
         <% end %>
-        <td class="align-middle"><%= essay.date_submitted %></td>
-        <td class="align-middle"><%= essay.deadline %></td>
 
         <td class="align-middle">
           <% if essay.assigned? %>
