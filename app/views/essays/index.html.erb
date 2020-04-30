@@ -14,7 +14,10 @@
         <th scope="col">Date Submitted</th>
       <% end %>
       <th scope="col">Deadline</th>
-      <th scope="col">Status</th>
+      <th scope="col">Assigned</th>
+      <th scope="col">Reviewed</th>
+      <th scope="col">Meeting Scheduled</th>
+      <th scope="col">Completed</th>
       <th scope="col">Next Step</th>
     </tr>
   </thead>
@@ -45,12 +48,38 @@
         <% end %>
         <td class="align-middle"><%= essay.date_submitted %></td>
         <td class="align-middle"><%= essay.deadline %></td>
-        <td class="align-middle"><%= essay.essay_status %></td>
+
+        <td class="align-middle">
+          <% if essay.assigned? %>
+            <i class="fas fa-check"></i>
+          <% else %>
+            -
+          <% end %>
+        </td>
+        <td class="align-middle">
+          <% if essay.reviewed? %>
+            <i class="fas fa-check"></i>
+          <% else %>
+            -
+          <% end %>
+        </td>
+        <td class="align-middle">
+          <% if essay.meeting_scheduled? %>
+            <i class="fas fa-check"></i>
+          <% else %>
+            -
+          <% end %>
+        </td>
         <td class="align-middle">
           <% if essay.completed? %>
+            <i class="fas fa-check"></i>
+          <% else %>
             -
-          <% elsif essay.assigned == false %>
-            <%= link_to essay.next_step, root_path %>
+          <% end %>
+        </td>
+        <td class="align-middle">
+          <% if essay.completed? %>
+            Done!
           <% else %>
             <%= link_to essay.next_step, user_essay_path(current_user, essay), :method => :patch, data: { confirm: "Are you sure?" } %>
           <% end %>
