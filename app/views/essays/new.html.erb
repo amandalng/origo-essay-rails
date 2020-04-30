@@ -1,37 +1,37 @@
 <h1 class="mb-5">Submit your Essay</h1>
 
 <%= simple_form_for @essay do |f| %>
-  <%= f.input :student_name, label: "Full name" %>
-  <%= f.input :email %>
-  <%= f.input :applicant_type, label: "Applicant type", as: :radio_buttons, collection: [['Undergraduate', 'Undergraduate'], ['Graduate', 'Graduate']], label_method: :second, value_method: :first %>
-  <%= f.input :country_applying, label: "Country you're applying to", as: :radio_buttons, collection: [['US', 'US'], ['CA', 'CA'], ['UK', 'UK'], ['Other', 'Other']], label_method: :second, value_method: :first %>
-  <%= f.input :university_applying, label: "University you're applying to (if applicable)" %>
-  <%= f.input :program_applying, label: "Program you're applying to (if applicable)" %>
-  <%= f.input :prompt, label: "Essay prompt" %>
-  <%= f.input :word_count, label: "Essay word count", placeholder: "100 - 1,000" %>
-  <br>
-  <%= f.label :attachment, label: "Please upload your essay." %>
-  <br>
-  <%= f.file_field :attachment %>
-  <br>
-  <br>
-  <br>
-  <%= f.input :notes, label: "Any additional remarks?", placeholder: "E.g. Having some trouble with essay organization - would appreciate feedback focused on essay structure!" %>
+<%= f.input :student_name, label: "Full name" %>
+<%= f.input :email %>
+<%= f.input :applicant_type, label: "Applicant type", as: :radio_buttons, collection: [['Undergraduate', 'Undergraduate'], ['Graduate', 'Graduate']], label_method: :second, value_method: :first %>
+<%= f.input :country_applying, label: "Country you're applying to", as: :radio_buttons, collection: [['US', 'US'], ['CA', 'CA'], ['UK', 'UK'], ['Other', 'Other']], label_method: :second, value_method: :first %>
+<%= f.input :university_applying, label: "University you're applying to (if applicable)" %>
+<%= f.input :program_applying, label: "Program you're applying to (if applicable)" %>
+<%= f.input :prompt, label: "Essay prompt" %>
+<%= f.input :word_count, label: "Essay word count", placeholder: "100 - 1,000" %>
+<br>
+<%= f.label :attachment, label: "Please upload your essay." %>
+<br>
+<%= f.file_field :attachment %>
+<br>
+<br>
+<br>
+<%= f.input :notes, label: "Any additional remarks?", placeholder: "E.g. Having some trouble with essay organization - would appreciate feedback focused on essay structure!" %>
 
-  <%# if false %>
-  <div class="d-flex align-items-center justify-content-center  my-5">
-    <div class="price-tag d-flex">
-      <p class="flex-grow-1">Price:</p>
-      <p>$</p>
-      <p class="price">0</p>
-    </div>
-    <%= link_to "See Pricing Details", pricing_essays_path, class: "ml-3 pricing-details" %>
+<div class="center">
+  <div class="d-flex justify-content-center price-tag mt-4">
+    <p>Price: US$</p>
+    <p class="price">0</p>
   </div>
-  <%# end %>
+</div>
 
-  <div class="center">
-    <%= f.button :submit, "Submit Essay", class: "main-btn" %>
-  </div>
+<div class="center">
+  <%= link_to "See Pricing Details", pricing_essays_path, class: "pricing-details mt-2" %>
+</div>
+
+<div class="center">
+  <%= f.button :submit, "Submit Essay", class: "main-btn mt-4" %>
+</div>
 <% end %>
 
 <%= javascript_pack_tag "price" %>
