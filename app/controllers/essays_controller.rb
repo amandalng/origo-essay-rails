@@ -17,9 +17,9 @@ class EssaysController < ApplicationController
 
   def index
     if current_user.administrator == true
-      @essays = Essay.all
+      @essays = Essay.all.sort_by &:created_at
     else
-      @essays = Essay.where(user: current_user)
+      @essays = Essay.where(user: current_user).sort_by &:created_at
     end
   end
 
@@ -45,7 +45,6 @@ class EssaysController < ApplicationController
     elsif @essay.received?
       @essay.assigned = true
     end
-    # raise
     @essay.save
 
     redirect_to user_essays_path(current_user)

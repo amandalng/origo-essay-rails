@@ -11,11 +11,14 @@
   <%= f.input :word_count, label: "Essay word count", placeholder: "100 - 1,000" %>
   <br>
   <%= f.label :attachment, label: "Please upload your essay." %>
+  <br>
   <%= f.file_field :attachment %>
+  <br>
   <br>
   <br>
   <%= f.input :notes, label: "Any additional remarks?", placeholder: "E.g. Having some trouble with essay organization - would appreciate feedback focused on essay structure!" %>
 
+  <%# if false %>
   <div class="d-flex align-items-center justify-content-center  my-5">
     <div class="price-tag d-flex">
       <p class="flex-grow-1">Price:</p>
@@ -24,6 +27,7 @@
     </div>
     <%= link_to "See Pricing Details", pricing_essays_path, class: "ml-3 pricing-details" %>
   </div>
+  <%# end %>
 
   <div class="center">
     <%= f.button :submit, "Submit Essay", class: "main-btn" %>
