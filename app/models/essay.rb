@@ -13,6 +13,8 @@ class Essay < ApplicationRecord
   mount_uploader :attachment, AttachmentUploader
   validates :attachment, presence: true
 
+  monetize :price_cents
+
   def essay_price
     if applicant_type == "Undergraduate"
       if word_count <= 250
