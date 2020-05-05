@@ -14,6 +14,10 @@ Rails.application.routes.draw do
     member do
       get 'confirmation'
     end
+    resources :orders, only: [:show, :create] do
+      resources :payments, only: :new
+    end
   end
 
+  # mount StripeEvent::Engine, at: '/stripe-webhooks'
 end

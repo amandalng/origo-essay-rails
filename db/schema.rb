@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_05_082206) do
+ActiveRecord::Schema.define(version: 2020_05_05_100227) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,25 @@ ActiveRecord::Schema.define(version: 2020_05_05_082206) do
     t.index ["user_id"], name: "index_essays_on_user_id"
   end
 
+  create_table "orders", force: :cascade do |t|
+    t.integer "amount_cents", default: 0, null: false
+    t.string "checkout_session_id"
+    t.bigint "essay_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "state"
+    t.string "student_name"
+    t.string "email"
+    t.string "applicant_type"
+    t.string "country_applying"
+    t.string "university_applying"
+    t.string "program_applying"
+    t.string "prompt"
+    t.integer "word_count"
+    t.text "notes"
+    t.index ["essay_id"], name: "index_orders_on_essay_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -54,4 +73,5 @@ ActiveRecord::Schema.define(version: 2020_05_05_082206) do
   end
 
   add_foreign_key "essays", "users"
+  add_foreign_key "orders", "essays"
 end
