@@ -7,7 +7,9 @@ class EssaysController < ApplicationController
 
   def create
     @essay = Essay.new(essay_params)
-    @essay.price_cents = @essay.essay_price*100
+    if @essay.price_cents > 0
+      @essay.price_cents = @essay.essay_price*100
+    end
 
     if @essay.save
       redirect_to confirmation_essay_path(@essay), notice: "Submission successful!"

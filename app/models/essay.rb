@@ -1,9 +1,9 @@
 class Essay < ApplicationRecord
   belongs_to :user, optional: true
 
-  validates :student_name, presence: true, :length => { :minimum => 2 }
+  validates :student_name, presence: true
   validates :email, presence: true, :format => { :with => /[^@]+@[^\.]+\..+/,
-    :message => "must be in proper format (e.g. john@mgmail.com)" }
+    :message => "must be in proper format (e.g. john@gmail.com)" }
   validates :applicant_type, presence: true, :inclusion => { :in => %w(Undergraduate Graduate) }
   validates :country_applying, presence: true, :inclusion => { :in => %w(US CA UK Other) }
   validates :prompt, presence: true, :length => { :minimum => 2 }
@@ -15,25 +15,27 @@ class Essay < ApplicationRecord
   monetize :price_cents
 
   def essay_price
-    if applicant_type == "Undergraduate"
-      if word_count <= 250
-        return 80
-      elsif word_count <= 400
-        return 110
-      elsif word_count <= 600
-        return 130
+    if word_count.present?
+      if applicant_type == "Undergraduate"
+        if word_count <= 250
+          return 80
+        elsif word_count <= 400
+          return 110
+        elsif word_count <= 600
+          return 130
+        else
+          return 180
+        end
       else
-        return 180
-      end
-    else
-      if word_count <= 250
-        return 90
-      elsif word_count <= 400
-        return 120
-      elsif word_count <= 600
-        return 150
-      else
-        return 200
+        if word_count <= 250
+          return 90
+        elsif word_count <= 400
+          return 120
+        elsif word_count <= 600
+          return 150
+        else
+          return 200
+        end
       end
     end
   end
