@@ -80,6 +80,8 @@
         <td class="align-middle">
           <% if essay.completed? %>
             Done!
+          <% elsif essay.next_step == "Assign reviewer" %>
+            <%= link_to essay.next_step, edit_user_essay_path(current_user, essay) %>
           <% else %>
             <%= link_to essay.next_step, user_essay_path(current_user, essay), :method => :patch, data: { confirm: "Are you sure?" } %>
           <% end %>
