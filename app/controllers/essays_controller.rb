@@ -3,6 +3,7 @@ class EssaysController < ApplicationController
 
   def new
     @essay = Essay.new
+    @lead = Lead.new
   end
 
   def create

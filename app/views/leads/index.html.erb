@@ -1,0 +1,47 @@
+<h4 class="text-center">Hello, <%= current_user.full_name %>!</h4>
+<h1 class="mb-5">Check out your Leads</h1>
+
+<table class="table text-center">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Date Submitted</th>
+      <th scope="col">Full name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Contacted</th>
+      <th scope="col">Converted</th>
+      <th scope="col">Next Step</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @leads.each do |lead| %>
+      <tr>
+        <td class="align-middle"><%= lead.date_submitted %></td>
+        <td class="align-middle"><%= lead.full_name %></td>
+        <td class="align-middle"><%= lead.email %></td>
+        <td class="align-middle"><%= lead.phone %></td>
+        <td class="align-middle">
+          <% if lead.contacted? %>
+            <i class="fas fa-check"></i>
+          <% else %>
+            -
+          <% end %>
+        </td>
+        <td class="align-middle">
+          <% if lead.converted? %>
+            <i class="fas fa-check"></i>
+          <% else %>
+            -
+          <% end %>
+        </td>
+        <td class="align-middle">
+          <% if lead.converted? %>
+            Converted!
+          <% else %>
+            <%= link_to lead.next_step, user_lead_path(current_user, lead), :method => :patch, data: { confirm: "Are you sure?" } %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

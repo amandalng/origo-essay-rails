@@ -11,3 +11,17 @@
   color: $light-teal;
   opacity: 100%;
 }
+
+.secondary-btn {
+  padding: 8px 20px;
+  background-color: $gray;
+  opacity: 90%;
+  color: white;
+  border-radius: 50px;
+}
+
+.secondary-btn:hover {
+  text-decoration: none;
+  color: $light-teal;
+  opacity: 100%;
+}
