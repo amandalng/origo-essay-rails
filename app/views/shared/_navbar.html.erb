@@ -20,8 +20,8 @@
       <% end %>
       <%= link_to "Log out", destroy_user_session_path, method: :delete %>
     <% else %>
-      <%= link_to "About Us", "https://origoedu.com/", class: "mr-3" %>
-      <%= link_to "Our Services", "https://origoedu.com/en/services", class: "mr-3" %>
+      <%= link_to "About Us", "https://origoedu.com/", target: "_blank", class: "mr-3" %>
+      <%= link_to "Our Services", "https://origoedu.com/en/services", target: "_blank", class: "mr-3" %>
       <%= link_to "Essay Review Pricing", pricing_essays_path %>
       <%= link_to "Login", new_user_session_path, class: "ml-3" %>
     <% end %>
