@@ -15,7 +15,7 @@ class EssaysController < ApplicationController
     if @essay.save
       redirect_to confirmation_essay_path(@essay), notice: "Submission successful!"
     else
-      render "new"
+      redirect_to new_essay_path(@essay), notice: "Submission unsuccessful. Please try again, and fill all required fields."
     end
   end
 
