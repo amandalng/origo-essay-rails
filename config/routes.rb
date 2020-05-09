@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show] do
     resources :essays, only: [:index, :show]
     # patch "essays/:id", to: "essays#mark"
-    resources :leads, only: [:index, :update]
+    resources :leads, only: [:index, :show]
   end
   resources :essays, only: [:new, :create, :edit, :update] do
     collection do
@@ -19,7 +19,7 @@ Rails.application.routes.draw do
       resources :payments, only: :new
     end
   end
-  resources :leads, only: [:new, :create]
+  resources :leads, only: [:new, :create, :edit, :update]
 
   # mount StripeEvent::Engine, at: '/stripe-webhooks'
 end

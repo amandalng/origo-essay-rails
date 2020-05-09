@@ -1,0 +1,8 @@
+<h4 class="mb-4">Add notes for <%= @lead.full_name %></h4>
+
+<%= simple_form_for @lead do |f| %>
+  <%= f.input :notes %>
+  <div class="center">
+    <%= f.button :submit, 'Add', class: "btn main-btn" %>
+  </div>
+<% end %>

@@ -1,0 +1,18 @@
+<h2 class="mb-5">Lead Details</h2>
+
+<div class="mini-container">
+  <p>Name: <%= @lead.full_name %></p>
+  <p>Email: <%= @lead.email %></p>
+  <p>Phone: <%= @lead.phone %></p>
+  <br>
+  <p>Current status: <%= @lead.current_status %></p>
+  <br>
+  <p class="mb-2">Notes: <%= @lead.notes %></p>
+  <%= link_to edit_lead_path(@lead) do %>
+    <i class="fas fa-edit"></i>
+  <% end %>
+</div>
+
+<div class="center">
+  <%= link_to "Back to Leads", user_leads_path(current_user), class: "main-btn" %>
+</div>

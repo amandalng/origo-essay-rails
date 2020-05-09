@@ -4,6 +4,7 @@
 <table class="table text-center">
   <thead class="thead-dark">
     <tr>
+      <th scope="col"></th>
       <th scope="col">Date Submitted</th>
       <th scope="col">Full name</th>
       <th scope="col">Email</th>
@@ -16,6 +17,11 @@
   <tbody>
     <% @leads.each do |lead| %>
       <tr>
+        <td class="align-middle">
+          <%= link_to(user_lead_path(current_user, lead)) do %>
+            <i class="fas fa-search-plus"></i>
+          <% end %>
+        </td>
         <td class="align-middle"><%= lead.date_submitted %></td>
         <td class="align-middle"><%= lead.full_name %></td>
         <td class="align-middle"><%= lead.email %></td>
@@ -38,7 +44,7 @@
           <% if lead.converted? %>
             Converted!
           <% else %>
-            <%= link_to lead.next_step, user_lead_path(current_user, lead), :method => :patch, data: { confirm: "Are you sure?" } %>
+            <%= link_to lead.next_step, lead_path(lead), :method => :patch, data: { confirm: "Are you sure?" } %>
           <% end %>
         </td>
       </tr>

@@ -5,19 +5,19 @@
   <p>Student name: <%= @essay.student_name %></p>
   <p>Email: <%= @essay.email %></p>
   <p>Applicant type: <%= @essay.applicant_type %></p>
-  <p>Country Applying To: <%= @essay.country_applying %></p>
+  <p>Country applying to: <%= @essay.country_applying %></p>
 </div>
 
 <div class="mini-container">
   <h5 class="text-center">Essay</h5>
    <p>Essay prompt: <%= @essay.prompt %> (<%= @essay.word_count %> words)</p>
-   <p>University Applying To:
+   <p>University applying to:
     <% if @essay.university_applying == "" %>
       Not specified
     <% else %>
       <%= @essay.university_applying %></p>
     <% end %>
-  <p>Program Applying To:
+  <p>Program applying to:
     <% if @essay.program_applying == "" %>
       Not specified
     <% else %>

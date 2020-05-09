@@ -15,16 +15,35 @@ class LeadsController < ApplicationController
     @leads = Lead.all.sort_by &:created_at
   end
 
+  def show
+    @lead = Lead.find(params[:id])
+  end
+
+  def edit
+    @lead = Lead.find(params[:id])
+  end
+
   def update
     @lead = Lead.find(params[:id])
-    if @lead.contacted?
+    if params["lead"].present?
+      @lead.notes = params["lead"]["notes"]
+      if @lead.save
+        redirect_to user_lead_path(current_user, @lead)
+      else
+        render "edit"
+      end
+    elsif @lead.contacted?
       @lead.converted = true
+      @lead.save
+
+      redirect_to user_leads_path(current_user)
     else
       @lead.contacted = true
-    end
-    @lead.save
+      @lead.save
 
-    redirect_to user_leads_path(current_user)
+      redirect_to user_leads_path(current_user)
+    end
+
   end
 
   private
