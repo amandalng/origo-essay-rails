@@ -1,5 +1,9 @@
 <h4 class="mb-4">Assign Reviewer</h4>
 
+<% if @essay.user %>
+    <p>Current reviewer: <%= @essay.reviewer_name  %></p>
+<% end %>
+
 <%= simple_form_for @essay do |f| %>
   <%= f.input :user, label: 'Reviewer name', collection: @reviewer_names %>
 

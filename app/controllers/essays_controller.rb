@@ -49,7 +49,7 @@ class EssaysController < ApplicationController
 
   def update
     @essay = Essay.find(params[:id])
-    if @essay.assigned == false
+    if params["essay"].present?
       @essay.user = User.find_by_full_name(params["essay"]["user"])
       @essay.assigned = true
     elsif @essay.meeting_scheduled?
