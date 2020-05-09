@@ -9,6 +9,7 @@
 puts "destroying all seeds..."
 Essay.destroy_all
 User.destroy_all
+Lead.destroy_all
 
 puts "creating users"
 User.create(
