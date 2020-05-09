@@ -43,6 +43,11 @@
           <td class="align-middle">
             <% if essay.user %>
               <%= essay.reviewer_name %>
+              <% if essay.reviewed? == false %>
+                <%= link_to edit_essay_path(essay) do %>
+                  <p class="reassign-btn">Reassign</p>
+                <% end %>
+              <% end %>
             <% else %>
               -
             <% end %>
