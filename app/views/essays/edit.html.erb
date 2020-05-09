@@ -1,3 +1,9 @@
-<% @reviewer_names.each do |name| %>
-  <%= name %>
+<h4 class="mb-4">Assign Reviewer</h4>
+
+<%= simple_form_for @essay do |f| %>
+  <%= f.input :user, label: 'Reviewer name', collection: @reviewer_names %>
+
+  <div class="center">
+    <%= f.button :submit, 'Assign reviewer', class: "btn main-btn" %>
+  </div>
 <% end %>

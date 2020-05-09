@@ -81,9 +81,9 @@
           <% if essay.completed? %>
             Done!
           <% elsif essay.next_step == "Assign reviewer" %>
-            <%= link_to essay.next_step, edit_user_essay_path(current_user, essay) %>
+            <%= link_to essay.next_step, edit_essay_path(essay) %>
           <% else %>
-            <%= link_to essay.next_step, user_essay_path(current_user, essay), :method => :patch, data: { confirm: "Are you sure?" } %>
+            <%= link_to essay.next_step, essay_path(essay), :method => :patch, data: { confirm: "Are you sure?" } %>
           <% end %>
         </td>
       </tr>

@@ -48,11 +48,11 @@ class EssaysController < ApplicationController
   end
 
   def update
-  end
-
-  def mark
     @essay = Essay.find(params[:id])
-    if @essay.meeting_scheduled?
+    if @essay.assigned == false
+      @essay.user = User.find_by_full_name(params["essay"]["user"])
+      @essay.assigned = true
+    elsif @essay.meeting_scheduled?
       @essay.completed = true
     elsif @essay.reviewed?
       @essay.meeting_scheduled = true
@@ -63,8 +63,28 @@ class EssaysController < ApplicationController
     end
     @essay.save
 
-    redirect_to user_essays_path(current_user)
+    if @essay.save
+      redirect_to user_essays_path(current_user)
+    else
+      render "edit"
+    end
   end
+
+  # def mark
+  #   @essay = Essay.find(params[:id])
+  #   if @essay.meeting_scheduled?
+  #     @essay.completed = true
+  #   elsif @essay.reviewed?
+  #     @essay.meeting_scheduled = true
+  #   elsif @essay.assigned?
+  #     @essay.reviewed = true
+  #   elsif @essay.received?
+  #     @essay.assigned = true
+  #   end
+  #   @essay.save
+
+  #   redirect_to user_essays_path(current_user)
+  # end
 
   def pricing
   end
@@ -72,6 +92,6 @@ class EssaysController < ApplicationController
   private
 
   def essay_params
-    params.require(:essay).permit(:student_name, :email, :applicant_type, :country_applying, :university_applying, :program_applying, :prompt, :word_count, :notes, :attachment)
+    params.require(:essay).permit(:student_name, :email, :applicant_type, :country_applying, :university_applying, :program_applying, :prompt, :word_count, :notes, :attachment, :user)
   end
 end
