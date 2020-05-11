@@ -3,6 +3,8 @@ class Lead < ApplicationRecord
   validates :email, presence: true, :format => { :with => /[^@]+@[^\.]+\..+/,
     :message => "must be in proper format (e.g. john@gmail.com)" }
 
+  belongs_to :user, optional: true
+
   def current_status
     if converted?
       "Converted to customer"

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_09_115707) do
+ActiveRecord::Schema.define(version: 2020_05_11_084835) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,8 @@ ActiveRecord::Schema.define(version: 2020_05_09_115707) do
     t.boolean "contacted", default: false
     t.boolean "converted", default: false
     t.text "notes"
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_leads_on_user_id"
   end
 
   create_table "orders", force: :cascade do |t|
@@ -84,5 +86,6 @@ ActiveRecord::Schema.define(version: 2020_05_09_115707) do
   end
 
   add_foreign_key "essays", "users"
+  add_foreign_key "leads", "users"
   add_foreign_key "orders", "essays"
 end

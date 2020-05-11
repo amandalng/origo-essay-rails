@@ -1,10 +1,22 @@
 <%= link_to "< back", user_lead_path(current_user, @lead), class: "back-btn" %>
 
-<h2 class="mb-4">Add notes for <%= @lead.full_name %></h2>
 
-<%= simple_form_for @lead do |f| %>
-  <%= f.input :notes %>
-  <div class="center">
-    <%= f.button :submit, 'Add', class: "btn main-btn" %>
-  </div>
+<% if @lead.user.nil? %>
+  <h2 class="mb-4">Assign POC for <%= @lead.full_name %></h2>
+
+  <%= simple_form_for @lead do |f| %>
+    <%= f.input :user, label: "Administrator name", collection: @administrator_names %>
+    <div class="center">
+      <%= f.button :submit, 'Assign', class: "btn main-btn" %>
+    </div>
+  <% end %>
+<% else %>
+  <h2 class="mb-4">Add notes for <%= @lead.full_name %></h2>
+
+  <%= simple_form_for @lead do |f| %>
+    <%= f.input :notes %>
+    <div class="center">
+      <%= f.button :submit, 'Add', class: "btn main-btn" %>
+    </div>
+  <% end %>
 <% end %>

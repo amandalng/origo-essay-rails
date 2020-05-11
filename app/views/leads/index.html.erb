@@ -9,6 +9,7 @@
       <th scope="col">Full name</th>
       <th scope="col">Email</th>
       <th scope="col">Phone</th>
+      <th scope="col">POC</th>
       <th scope="col">Contacted</th>
       <th scope="col">Converted</th>
       <th scope="col">Next Step</th>
@@ -26,6 +27,14 @@
         <td class="align-middle"><%= lead.full_name %></td>
         <td class="align-middle"><%= lead.email %></td>
         <td class="align-middle"><%= lead.phone %></td>
+        <td class="align-middle">
+          <% if lead.user.present? %>
+            <%= lead.user.full_name %>
+            <%#= link_to "Reassign",  %>
+          <% else %>
+            <%= link_to "Assign POC", edit_lead_path(lead) %>
+          <% end %>
+        </td>
         <td class="align-middle">
           <% if lead.contacted? %>
             <i class="fas fa-check"></i>
