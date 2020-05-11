@@ -9,11 +9,11 @@
       <th scope="col">Applicant name</th>
       <th scope="col">Applicant type</th>
       <th scope="col">Country</th>
-      <% if current_user.administrator == true %>
-        <th scope="col">Date Submitted</th>
-      <% end %>
+      <th scope="col">Date Submitted</th>
       <th scope="col">Deadline</th>
-      <th scope="col">Reviewer</th>
+      <% if current_user.administrator == true %>
+        <th scope="col">Reviewer</th>
+      <% end %>
       <th scope="col">Assigned</th>
       <th scope="col">Reviewed</th>
       <th scope="col">Meeting Scheduled</th>
