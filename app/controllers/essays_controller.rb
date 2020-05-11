@@ -38,7 +38,7 @@ class EssaysController < ApplicationController
   def edit
     @user = current_user
     @essay = Essay.find(params[:id])
-    @reviewers = User.all
+    @reviewers = User.all.order(:full_name)
 
     @reviewer_names = []
     @reviewers.each do |reviewer|
@@ -49,6 +49,7 @@ class EssaysController < ApplicationController
 
   def update
     @essay = Essay.find(params[:id])
+
     if params["essay"].present?
       @essay.user = User.find_by_full_name(params["essay"]["user"])
       @essay.assigned = true

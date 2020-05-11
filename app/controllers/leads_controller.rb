@@ -21,7 +21,7 @@ class LeadsController < ApplicationController
 
   def edit
     @lead = Lead.find(params[:id])
-    @administrators = User.where(administrator: true)
+    @administrators = User.where(administrator: true).order(:full_name)
 
     @administrator_names = []
     @administrators.each do |administrator|

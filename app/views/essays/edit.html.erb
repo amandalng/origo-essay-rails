@@ -7,7 +7,7 @@
 <% end %>
 
 <%= simple_form_for @essay do |f| %>
-  <%= f.input :user, label: 'Reviewer name', collection: @reviewer_names %>
+  <%= f.input :user, label: 'Reviewer name', collection: @reviewer_names, include_blank: false, include_hidden: false %>
 
   <div class="center">
     <%= f.button :submit, 'Assign reviewer', class: "btn main-btn" %>

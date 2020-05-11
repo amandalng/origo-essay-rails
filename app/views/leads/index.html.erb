@@ -30,7 +30,6 @@
         <td class="align-middle">
           <% if lead.user.present? %>
             <%= lead.user.full_name %>
-            <%#= link_to "Reassign",  %>
           <% else %>
             <%= link_to "Assign PIC", edit_lead_path(lead) %>
           <% end %>
