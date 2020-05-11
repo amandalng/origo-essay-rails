@@ -1,8 +1,7 @@
-<%= link_to "< back", user_lead_path(current_user, @lead), class: "back-btn" %>
-
-
 <% if @lead.user.nil? %>
-  <h2 class="mb-4">Assign POC for <%= @lead.full_name %></h2>
+  <%= link_to "< back", user_leads_path(current_user), class: "back-btn" %>
+
+  <h2 class="mb-4">Assign PIC for <%= @lead.full_name %></h2>
 
   <%= simple_form_for @lead do |f| %>
     <%= f.input :user, label: "Administrator name", collection: @administrator_names %>
@@ -11,6 +10,8 @@
     </div>
   <% end %>
 <% else %>
+  <%= link_to "< back", user_lead_path(current_user, @lead), class: "back-btn" %>
+
   <h2 class="mb-4">Add notes for <%= @lead.full_name %></h2>
 
   <%= simple_form_for @lead do |f| %>

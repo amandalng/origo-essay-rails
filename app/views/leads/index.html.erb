@@ -9,7 +9,7 @@
       <th scope="col">Full name</th>
       <th scope="col">Email</th>
       <th scope="col">Phone</th>
-      <th scope="col">POC</th>
+      <th scope="col">PIC</th>
       <th scope="col">Contacted</th>
       <th scope="col">Converted</th>
       <th scope="col">Next Step</th>
@@ -32,7 +32,7 @@
             <%= lead.user.full_name %>
             <%#= link_to "Reassign",  %>
           <% else %>
-            <%= link_to "Assign POC", edit_lead_path(lead) %>
+            <%= link_to "Assign PIC", edit_lead_path(lead) %>
           <% end %>
         </td>
         <td class="align-middle">
