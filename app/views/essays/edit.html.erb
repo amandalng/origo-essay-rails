@@ -1,4 +1,6 @@
-<h4 class="mb-4">Assign Reviewer</h4>
+<%= link_to "< back", user_essays_path(current_user), class: "back-btn" %>
+
+<h2 class="mb-4">Assign Reviewer</h2>
 
 <% if @essay.user %>
     <p>Current reviewer: <%= @essay.reviewer_name  %></p>

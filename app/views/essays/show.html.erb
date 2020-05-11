@@ -1,3 +1,5 @@
+<%= link_to "< back", user_essays_path(current_user), class: "back-btn" %>
+
 <h2 class="mb-5">Submission Details</h2>
 
 <div class="mini-container">
@@ -31,8 +33,4 @@
   <p>Reviewer: <%= @essay.reviewer_name %></p>
   <p>Status: <%= @essay.essay_status %></p>
   <p>Next Step: <%= @essay.next_step %></p>
-</div>
-
-<div class="center">
-  <%= link_to "Back to Dashboard", user_essays_path(current_user), class: "main-btn" %>
 </div>
