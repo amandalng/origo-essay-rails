@@ -13,8 +13,8 @@
       <th scope="col">Deadline</th>
       <% if current_user.administrator == true %>
         <th scope="col">Reviewer</th>
+        <th scope="col">Assigned</th>
       <% end %>
-      <th scope="col">Assigned</th>
       <th scope="col">Reviewed</th>
       <th scope="col">Meeting Scheduled</th>
       <th scope="col">Completed</th>
@@ -54,13 +54,15 @@
           </td>
         <% end %>
 
-        <td class="align-middle">
-          <% if essay.assigned? %>
-            <i class="fas fa-check"></i>
-          <% else %>
-            -
-          <% end %>
-        </td>
+        <% if current_user.administrator == true %>
+          <td class="align-middle">
+            <% if essay.assigned? %>
+              <i class="fas fa-check"></i>
+            <% else %>
+              -
+            <% end %>
+          </td>
+        <% end %>
         <td class="align-middle">
           <% if essay.reviewed? %>
             <i class="fas fa-check"></i>
