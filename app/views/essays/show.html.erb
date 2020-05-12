@@ -30,7 +30,9 @@
 
 <div class="mini-container mb-5">
   <h5 class="text-center">Status</h5>
-  <p>Reviewer: <%= @essay.reviewer_name %></p>
+  <% if @essay.assigned == true %>
+    <p>Reviewer: <%= @essay.reviewer_name %></p>
+  <% end %>
   <p>Status: <%= @essay.essay_status %></p>
   <p>Next Step: <%= @essay.next_step %></p>
 </div>
