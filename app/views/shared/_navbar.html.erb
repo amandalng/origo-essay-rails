@@ -51,10 +51,47 @@
         <li class="nav-item">
           <%= link_to "Pricing", pricing_essays_path, class: "nav-btn" %>
         </li>
+        <% if false %>
+          <li class="nav-item">
+            <%= link_to "Login", new_user_session_path, class: "nav-btn" %>
+          </li>
+        <% end %>
         <li class="nav-item">
-          <%= link_to "Login", new_user_session_path, class: "nav-btn" %>
+          <!-- Button trigger modal -->
+            <button type="button" class="btn nav-big-btn" data-toggle="modal" data-target="#leadModal" href="/leads/new">
+              Free Consultation
+            </button>
         </li>
       </ul>
     </div>
   </div>
 <% end %>
+
+          <!-- Modal -->
+          <div class="modal fade" id="leadModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalCenterTitle">Leave us your contact details, and we'll reach out to give you a <strong>free consultation</strong>!</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <%= simple_form_for @lead, url: leads_path do |f| %>
+                  <%= f.input :full_name, label: "Full name" %>
+                  <%= f.input :email %>
+                  <%= f.input :phone %>
+                  <br>
+                  <div class="center">
+                    <div class="d-flex">
+                      <button type="button" class="btn secondary-btn mr-3" data-dismiss="modal">No thanks</button>
+                      <%= f.button :submit, "Free consultation, please!", class: "btn main-btn" %>
+                    </div>
+                  </div>
+                  <% end %>
+                  <br>
+                </div>
+              </div>
+            </div>
+          </div>

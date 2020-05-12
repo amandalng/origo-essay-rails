@@ -1,6 +1,12 @@
 class ApplicationController < ActionController::Base
   before_action :authenticate_user!
 
+  before_action :new_lead
+
+  def new_lead
+    @lead = Lead.new
+  end
+
   def after_sign_in_path_for(resource)
     user_essays_path(current_user)
   end

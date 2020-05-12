@@ -44,7 +44,6 @@ class EssaysController < ApplicationController
     @reviewers.each do |reviewer|
       @reviewer_names << reviewer.full_name
     end
-    # raise
   end
 
   def update
@@ -62,7 +61,6 @@ class EssaysController < ApplicationController
     elsif @essay.received?
       @essay.assigned = true
     end
-    @essay.save
 
     if @essay.save
       redirect_to user_essays_path(current_user)
