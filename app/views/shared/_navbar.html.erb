@@ -15,9 +15,11 @@
         <li class="nav-item">
           <%= link_to "Dashboard", user_essays_path(current_user), class: "nav-btn" %>
         </li>
-        <li class="nav-item">
-          <%= link_to "Leads", user_leads_path(current_user), class: "nav-btn" %>
-        </li>
+        <% if current_user.administrator == true %>
+          <li class="nav-item">
+            <%= link_to "Leads", user_leads_path(current_user), class: "nav-btn" %>
+          </li>
+        <% end %>
         <li class="nav-item dropdown">
           <%= image_tag "https://www.greenecountyfoundation.org/wp-content/uploads/2019/09/Profile-Icon.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
