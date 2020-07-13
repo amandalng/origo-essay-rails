@@ -10,7 +10,7 @@ class Essay < ApplicationRecord
   validates :word_count, presence: true, :numericality => { :greater_than_or_equal_to => 100 }
 
   mount_uploader :attachment, AttachmentUploader
-  validates :attachment, presence: true
+  # validates :attachment, presence: true
 
   monetize :price_cents
 
