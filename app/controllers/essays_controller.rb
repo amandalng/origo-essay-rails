@@ -56,7 +56,8 @@ class EssaysController < ApplicationController
     @essay = Essay.find(params[:id])
 
     if params["essay"].present?
-      @essay.user = User.find_by_full_name(params["essay"]["user"])
+      @user = User.find_by_full_name(params["essay"]["user"])
+      @essay.user = @user
       @essay.assigned = true
     elsif @essay.meeting_scheduled?
       @essay.completed = true
