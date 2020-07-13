@@ -1,0 +1,15 @@
+wb = xlsx_package.workbook
+wb.add_worksheet(name: "Essays") do |sheet|
+  @essays.each do |essay|
+    sheet.add_row [
+    essay.date_submitted,
+    essay.student_name,
+    essay.applicant_type,
+    essay.country_applying,
+    essay.university_applying,
+    essay.program_applying,
+    essay.reviewer_name,
+    essay.essay_status
+    ]
+  end
+end

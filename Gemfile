@@ -23,6 +23,8 @@ gem 'money-rails'
 gem 'stripe'
 gem 'stripe_event'
 
+gem 'axlsx_rails'
+
 group :development do
   gem 'web-console', '>= 3.3.0'
 end

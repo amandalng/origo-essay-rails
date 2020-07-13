@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 puts "destroying all seeds..."
+Order.destoy_all
 Essay.destroy_all
 User.destroy_all
 Lead.destroy_all

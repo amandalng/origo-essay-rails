@@ -1,6 +1,10 @@
 <h4 class="text-center">Hello, <%= current_user.full_name %>!</h4>
 <h1 class="mb-5">Here's your Dashboard</h1>
 
+<div class="center mb-4">
+  <%= link_to 'Download as .xlsx', user_essays_path(current_user, format: :xlsx) %>
+</div>
+
 <table class="table text-center">
   <thead class="thead-dark">
     <tr>

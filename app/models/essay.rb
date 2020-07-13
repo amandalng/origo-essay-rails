@@ -77,6 +77,8 @@ class Essay < ApplicationRecord
   end
 
   def reviewer_name
-    user.full_name
+    if assigned?
+      user.full_name
+    end
   end
 end

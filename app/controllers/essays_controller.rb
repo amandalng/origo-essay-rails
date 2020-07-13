@@ -22,6 +22,12 @@ class EssaysController < ApplicationController
   def index
     if current_user.administrator == true
       @essays = Essay.all.sort_by &:created_at
+      respond_to do |format|
+        format.html
+        format.xlsx {
+          response.headers['Content-Disposition'] = 'attachment; filename="all_essays.xlsx"'
+        }
+      end
     else
       @essays = Essay.where(user: current_user).sort_by &:created_at
     end

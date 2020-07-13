@@ -6,11 +6,11 @@
 <%= f.input :student_name, label: "Full name" %>
 <%= f.input :email %>
 <%= f.input :applicant_type, label: "Applicant type", as: :radio_buttons, collection: [['Undergraduate', 'Undergraduate'], ['Graduate', 'Graduate']], label_method: :second, value_method: :first %>
-<%= f.input :country_applying, label: "Country you're applying to", as: :radio_buttons, collection: [['US', 'US'], ['CA', 'CA'], ['UK', 'UK'], ['Other', 'Other']], label_method: :second, value_method: :first %>
-<%= f.input :university_applying, label: "University you're applying to (if applicable)" %>
-<%= f.input :program_applying, label: "Program you're applying to (if applicable)" %>
+<%= f.input :country_applying, label: "Country applying to", as: :radio_buttons, collection: [['US', 'US'], ['CA', 'CA'], ['UK', 'UK'], ['Other', 'Other']], label_method: :second, value_method: :first %>
+<%= f.input :university_applying, label: "University applying to (if applicable)" %>
+<%= f.input :program_applying, label: "Program applying to (if applicable)" %>
 <%= f.input :prompt, label: "Essay prompt" %>
-<%= f.input :word_count, label: "Essay word count", placeholder: "100 - 1,000" %>
+<%= f.input :word_count, label: "Essay word count", hint: "If your essay word prompt is by character count, please divide the characters by 6 to get an approximate word count (E.g. UCAS 4,000 characters is 667 words.)" %>
 <br>
 <%= f.label :attachment, label: "Please upload your essay." %>
 <br>
@@ -41,25 +41,22 @@
 <!-- Button trigger modal -->
 
 <div class="center">
-  <button type="button" class="btn main-btn" data-toggle="modal" data-target="#leadModal" href="/leads/new">
+  <button type="button" class="btn main-btn" data-toggle="modal" data-target="#essayModal" href="/leads/new">
     Want submit multiple essays?
   </button>
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="leadModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal fade" id="essayModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalCenterTitle">We want to help. If you're looking for multiple essay reviews, we may have a service that's better suited for you. &#128522;</h5>
+        <h5 class="modal-title" id="exampleModalCenterTitle">We process submissions for multiple essays separately. Please leave us your email and we will get in touch with you within 24 hours! &#128522;</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        Leave us your contact details, and we'll reach out to give you a <strong>free consultation</strong>!
-        <br>
-        <br>
         <%= simple_form_for @lead, url: leads_path do |f| %>
         <%= f.input :full_name, label: "Full name" %>
         <%= f.input :email %>
@@ -68,7 +65,7 @@
         <div class="center">
           <div class="d-flex">
             <button type="button" class="btn secondary-btn mr-3" data-dismiss="modal">No thanks</button>
-            <%= f.button :submit, "Free consultation, please!", class: "btn main-btn" %>
+            <%= f.button :submit, "Submit!", class: "btn main-btn" %>
           </div>
         </div>
         <% end %>
