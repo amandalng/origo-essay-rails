@@ -72,7 +72,8 @@ class EssaysController < ApplicationController
     if @essay.save
       redirect_to user_essays_path(current_user)
     else
-      render "edit"
+      log.debug my_object.errors.full_messages
+      # render "edit"
     end
   end
 

@@ -16,12 +16,9 @@
 <p class="mb-0">Essay word count: <%= @essay.word_count %> words</p>
 <p>Price: $<%= @essay.essay_price %> (USD)</p>
 
-<%= form_tag essay_orders_path(@essay) do %>
-  <%= hidden_field_tag 'essay_id', @essay.id %>
-  <div class="center">
-    <%= submit_tag 'Make Payment', class: 'btn main-btn' %>
-  </div>
-<% end %>
+<p class="text-center my-5"><strong>We've just sent you an email with payment details and instructions. If you'd like to proceed, do follow those steps and we'll get started on your essay!</strong></p>
+
+<%= link_to "< back to Home", root_path %>
 
 <div class="center">
   <%#= link_to "Back to Home", root_path, class: "main-btn" %>
