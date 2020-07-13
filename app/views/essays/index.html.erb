@@ -29,12 +29,12 @@
     <% @essays.each do |essay| %>
       <tr>
         <td class="align-middle">
-          <%= link_to(user_essay_path(current_user, essay)) do %>
+          <%= link_to(user_essay_path(current_user, essay, format: :docx)) do %>
             <i class="fas fa-info-circle"></i>
           <% end %>
         </td>
         <td class="align-middle">
-          <%= link_to(essay.attachment_url) do %>
+          <%= link_to(download_essay_path(essay)) do %>
             <i class="fas fa-download"></i>
           <% end %>
         </td>

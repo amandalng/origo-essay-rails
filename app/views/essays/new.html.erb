@@ -11,13 +11,12 @@
 <%= f.input :program_applying, label: "Program applying to (if applicable)" %>
 <%= f.input :prompt, label: "Essay prompt" %>
 <%= f.input :word_count, label: "Essay word count", hint: "If your essay word prompt is by character count, please divide the characters by 6 to get an approximate word count (E.g. UCAS 4,000 characters is 667 words.)" %>
-<br>
-<%= f.label :attachment, label: "Please upload your essay." %>
-<br>
-<%= f.file_field :attachment %>
-<br>
-<br>
-<br>
+<%= f.input :essay, label: "Please input your essay draft here.", hint: "Should be a simple copy and paste of your full draft!", :as => :text, :input_html => { 'rows' => 8}  %>
+
+<%#= f.label :attachment, label: "Please upload your essay." %>
+
+<%#= f.file_field :attachment %>
+
 <%= f.input :notes, label: "Any additional remarks?", placeholder: "E.g. Having some trouble with essay organization - would appreciate feedback focused on essay structure!" %>
 
 <div class="center">

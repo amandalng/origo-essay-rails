@@ -13,7 +13,7 @@ class EssaysController < ApplicationController
     end
 
     if @essay.save
-      redirect_to confirmation_essay_path(@essay), notice: "Submission successful!"
+      redirect_to confirmation_essay_path(@essay)
     else
       redirect_to new_essay_path(@essay), notice: "Submission unsuccessful. Please try again, and fill all required fields."
     end
@@ -39,6 +39,16 @@ class EssaysController < ApplicationController
 
   def confirmation
     @essay = Essay.find(params[:id])
+  end
+
+  def download
+    @essay = Essay.find(params[:id])
+
+    respond_to do |format|
+      format.docx {
+        response.headers["Content-Disposition"] = "attachment; filename=\"#{@essay.date_submitted}_#{@essay.student_name}.docx\""
+      }
+    end
   end
 
   def edit
@@ -99,6 +109,6 @@ class EssaysController < ApplicationController
   private
 
   def essay_params
-    params.require(:essay).permit(:student_name, :email, :applicant_type, :country_applying, :university_applying, :program_applying, :prompt, :word_count, :notes, :attachment, :user)
+    params.require(:essay).permit(:student_name, :email, :applicant_type, :country_applying, :university_applying, :program_applying, :prompt, :word_count, :notes, :attachment, :user, :essay)
   end
 end

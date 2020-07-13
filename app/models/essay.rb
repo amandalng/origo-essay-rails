@@ -8,6 +8,7 @@ class Essay < ApplicationRecord
   validates :country_applying, presence: true, :inclusion => { :in => %w(US CA UK Other) }
   validates :prompt, presence: true, :length => { :minimum => 2 }
   validates :word_count, presence: true, :numericality => { :greater_than_or_equal_to => 100 }
+  validates :essay, presence: true
 
   mount_uploader :attachment, AttachmentUploader
   # validates :attachment, presence: true

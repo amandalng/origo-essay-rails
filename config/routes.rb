@@ -17,6 +17,7 @@ Rails.application.routes.draw do
     end
     member do
       get 'confirmation'
+      get 'download', format: 'docx'
     end
     resources :orders, only: [:show, :create] do
       resources :payments, only: :new

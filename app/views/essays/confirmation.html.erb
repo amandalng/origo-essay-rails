@@ -1,24 +1,30 @@
-<h2 class="mb-5">Confirm your details and pay</h2>
+<h2 class="mb-5">Submission Confirmation & Payment</h2>
+
+<p class="text-center mt-5 mb-1"><strong>We've just sent you an email with payment instructions.</strong></p>
+<p class="text-center mb-5 mt-1"><strong>After reviewing your submission details below, please follow the payment steps detailed in the email and we'll get started on your essay!</strong></p>
 
 <h4 class="mb-3 text-center">Submission Details</h4>
-<p class="mb-0">Student name: <%= @essay.student_name %></p>
-<p class="mb-0">Email: <%= @essay.email %></p>
-<p class="mb-0">Applicant type: <%= @essay.applicant_type %></p>
-<p class="mb-0">Country Applying To: <%= @essay.country_applying %></p>
+<p class="mb-0"><strong>Student name</strong>: <%= @essay.student_name %></p>
+<p class="mb-0"><strong>Email</strong>: <%= @essay.email %></p>
+<p class="mb-0"><strong>Applicant type</strong>: <%= @essay.applicant_type %></p>
+<p class="mb-0"><strong>Country Applying To</strong>: <%= @essay.country_applying %></p>
 <% if @essay.university_applying.present? %>
-  <p class="mb-0">University Applying To: <%= @essay.university_applying %></p>
+  <p class="mb-0"><strong>University Applying To</strong>: <%= @essay.university_applying %></p>
 <% end %>
 <% if @essay.program_applying.present? %>
-  <p class="mb-0">Program Applying To: <%= @essay.program_applying %></p>
+  <p class="mb-0"><strong>Program Applying To</strong>: <%= @essay.program_applying %></p>
 <% end %>
 
-<p class="mb-0 mt-3">Essay prompt: <%= @essay.prompt %></p>
-<p class="mb-0">Essay word count: <%= @essay.word_count %> words</p>
-<p>Price: $<%= @essay.essay_price %> (USD)</p>
+<p class="mb-0 mt-3"><strong>Essay prompt</strong>: <%= @essay.prompt %></p>
+<p class="mb-0"><strong>Essay word count</strong>: <%= @essay.word_count %> words</p>
+<p><strong>Price</strong>: $<%= @essay.essay_price %> (USD)</p>
 
-<p class="text-center my-5"><strong>We've just sent you an email with payment details and instructions. If you'd like to proceed, do follow those steps and we'll get started on your essay!</strong></p>
+<p class="text-center"><strong>Essay:</strong></p>
+<p><%= simple_format(strip_tags(@essay.essay)) %></p>
 
-<%= link_to "< back to Home", root_path %>
+<div class="mt-5">
+  <%= link_to "< back to Home", root_path %>
+</div>
 
 <div class="center">
   <%#= link_to "Back to Home", root_path, class: "main-btn" %>

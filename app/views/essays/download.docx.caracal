@@ -1,0 +1,10 @@
+docx.h1 'Essay Submission', font: 'Arial'
+docx.p do
+br
+end
+docx.h2 "Student name: #{@essay.student_name}", font: 'Arial'
+docx.h2 "Essay Prompt: #{@essay.prompt} (#{@essay.word_count} words)", font: 'Arial'
+docx.p do
+br
+end
+docx.p @essay.essay, font: 'Arial'
