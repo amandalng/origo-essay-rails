@@ -69,7 +69,7 @@ class EssaysController < ApplicationController
       @essay.assigned = true
     end
 
-    if @essay.save
+    if @essay.save!
       redirect_to user_essays_path(current_user)
     else
       log.debug my_object.errors.full_messages
