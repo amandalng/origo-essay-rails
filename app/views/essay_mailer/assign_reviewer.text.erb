@@ -1,0 +1,24 @@
+Hey <%= @essay.user.full_name %>!
+
+A new essay came in and we've assigned it to you! Here are the submission details:
+
+Student Name: <%= @essay.student_name %>
+Email: <%= @essay.email %>
+Applicant Type: <%= @essay.applicant_type %>
+Country Applying To: <%= @essay.country_applying %>
+<% if @essay.university_applying.present? %>
+  University Applying To: <%= @essay.university_applying %>
+<% end %>
+<% if @essay.program_applying.present? %>
+  Program Applying To: <%= @essay.program_applying %>
+<% end %>
+Essay Prompt: <%= @essay.prompt %> (<%= @essay.word_count %> words)
+Essay:
+<%= simple_format(strip_tags(@essay.essay)) %>
+
+The essay is attached to this email. Please review and return this essay to <%= @essay.student_name %> by <%= @essay.review_deadline %>.
+
+
+Best regards,
+
+The Origo Team

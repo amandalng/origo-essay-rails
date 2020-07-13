@@ -13,6 +13,8 @@ class EssaysController < ApplicationController
     end
 
     if @essay.save
+      EssayMailer.with(essay: @essay).confirmation_and_payment.deliver_now
+      EssayMailer.with(essay: @essay).new_submission.deliver_now
       redirect_to confirmation_essay_path(@essay)
     else
       redirect_to new_essay_path(@essay), notice: "Submission unsuccessful. Please try again, and fill all required fields."
@@ -81,8 +83,17 @@ class EssaysController < ApplicationController
 
     if @essay.save
       redirect_to user_essays_path(current_user)
+      if @essay.reviewed == false
+        EssayMailer.with(essay: @essay).assign_reviewer.deliver_now
+        # EssayMailer.with(essay: @essay).intro_reviewer.deliver_now
+      # elsif @essay.reviewed == false
+
+      # elsif @essay.assigned == false
+
+      # elsif @essay.received == false
+
+      end
     else
-      # log.debug my_object.errors.full_messages
       render "edit"
     end
   end

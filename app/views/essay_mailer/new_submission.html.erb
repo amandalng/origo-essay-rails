@@ -1,0 +1,18 @@
+<p style='text-align: center; margin: 20px;'>Hey team!</p>
+
+<p style='text-align: center; margin: 20px;'>We just received a new essay to review. Here are submission details:</p>
+
+<p style='margin: 20px;'><strong>Student Name</strong>: <%= @essay.student_name %></p>
+<p style='margin: 20px;'><strong>Email</strong>: <%= @essay.email %></p>
+<p style='margin: 20px;'><strong>Applicant Type</strong>: <%= @essay.applicant_type %></p>
+<p style='margin: 20px;'><strong>Country Applying To</strong>: <%= @essay.country_applying %></p>
+<% if @essay.university_applying.present? %>
+  <p style='margin: 20px;'><strong>University Applying To</strong>: <%= @essay.university_applying %></p>
+<% end %>
+<% if @essay.program_applying.present? %>
+  <p style='margin: 20px;'><strong>Program Applying To</strong>: <%= @essay.program_applying %></p>
+<% end %>
+<p style='margin: 20px;'><strong>Essay Prompt</strong>: <%= @essay.prompt %> (<%= @essay.word_count %> words)</p>
+<p style='margin: 20px;'><strong>Payment Amount</strong>: $<%= @essay.essay_price %> (USD)</p>
+
+<p style='text-align: center; margin: 20px;'><strong>Once payment has been made, please assign this essay to a reviewer!</strong></p>

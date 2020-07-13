@@ -1,0 +1,18 @@
+Hey team!
+
+We just received a new essay to review. Here are submission details:
+
+Student Name: <%= @essay.student_name %>
+Email: <%= @essay.email %>
+Applicant Type: <%= @essay.applicant_type %>
+Country Applying To: <%= @essay.country_applying %>
+<% if @essay.university_applying.present? %>
+  University Applying To: <%= @essay.university_applying %>
+<% end %>
+<% if @essay.program_applying.present? %>
+  Program Applying To: <%= @essay.program_applying %>
+<% end %>
+Essay prompt: <%= @essay.prompt %> (<%= @essay.word_count %> words)
+Payment Amount: $<%= @essay.essay_price %> (USD)
+
+Once payment has been made, please assign this essay to a reviewer!

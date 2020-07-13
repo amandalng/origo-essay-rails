@@ -26,13 +26,13 @@ User.create(
   administrator: true
   )
 User.create(
-  email: "jessica@origoedu.com",
+  email: "vitriana.jessica@origoedu.com",
   password: "password",
   full_name: "Jessica Vitriana",
   administrator: true
   )
 User.create(
-  email: "thomas@gmail.com",
+  email: "amandaleahng@gmail.com",
   password: "password",
   full_name: "Thomas Eng",
   administrator: false

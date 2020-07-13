@@ -70,11 +70,20 @@ class Essay < ApplicationRecord
   end
 
   def date_submitted
-    created_at.strftime("%Y-%m-%d")
+    created_at.strftime("%e %B, %Y")
   end
 
+  def payment_deadline
+    (created_at + 2.days).strftime("%e %B, %Y")
+  end
+
+  def review_deadline
+    (updated_at + 2.days).strftime("%e %B, %Y")
+  end
+
+
   def deadline
-    (created_at + 5.days).strftime("%Y-%m-%d")
+    (created_at + 5.days).strftime("%e %B, %Y")
   end
 
   def reviewer_name
