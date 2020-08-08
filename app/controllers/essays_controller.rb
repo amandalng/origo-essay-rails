@@ -13,8 +13,8 @@ class EssaysController < ApplicationController
     end
 
     if @essay.save
-      EssayMailer.with(essay: @essay).confirmation_and_payment.deliver_now
-      EssayMailer.with(essay: @essay).new_submission.deliver_now
+      # EssayMailer.with(essay: @essay).confirmation_and_payment.deliver_now
+      # EssayMailer.with(essay: @essay).new_submission.deliver_now
       redirect_to confirmation_essay_path(@essay)
     else
       redirect_to new_essay_path(@essay), notice: "Submission unsuccessful. Please try again, and fill all required fields."
@@ -120,6 +120,6 @@ class EssaysController < ApplicationController
   private
 
   def essay_params
-    params.require(:essay).permit(:student_name, :email, :applicant_type, :country_applying, :university_applying, :program_applying, :prompt, :word_count, :notes, :attachment, :user, :essay)
+    params.require(:essay).permit(:student_name, :email, :applicant_type, :country_applying, :university_applying, :program_applying, :prompt, :word_count, :notes, :attachment, :user, :essay, :agree)
   end
 end

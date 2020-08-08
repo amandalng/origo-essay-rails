@@ -9,6 +9,7 @@
   padding: 16px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  position: relative;
 }
 
 .price-card p {
@@ -31,11 +32,13 @@
 }
 
 .price-card .price {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translate(-50%, 0);
   border-radius: 4px;
   padding: 4px 12px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+  width: 80%;
   background-color: $lime;
   font-size: 18px;
   // font-weight: bolder;

@@ -9,6 +9,7 @@ class Essay < ApplicationRecord
   validates :prompt, presence: true, :length => { :minimum => 2 }
   validates :word_count, presence: true, :numericality => { :greater_than_or_equal_to => 100 }
   validates :essay, presence: true
+  validates :agree, presence: true, acceptance: true
 
   mount_uploader :attachment, AttachmentUploader
   # validates :attachment, presence: true
