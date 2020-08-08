@@ -1,9 +1,28 @@
 <p style='text-align: center; margin: 20px;'>Hey <%= @essay.student_name %>! &#128075;</p>
 
-<p style='text-align: center; margin: 20px;'>Thank you for trusting us with your essay.</p>
+<p style='margin: 20px;'>Thank you for trusting us with your essay!</p>
 
-<p style='text-align: center; margin: 20px;'>For us to be able to match with you one of our outstanding editors, please make the payment by <%= @essay.payment_deadline %> at {{link}}.</p>
+<p style='margin: 20px;'>Your essay is currently being processed, and we'll get back to you within 24 hours with another email sharing payment details and instructions.</p>
 
-<p style='text-align: center; margin: 20px;'>Best regards,</p>
+<p style='margin: 20px;'>For your reference, please see your submission details below:</p>
 
-<p style='text-align: center; margin: 20px;'>The Origo Team</p>
+<ul>
+  <li style='margin: 20px;'><strong>Student name</strong>: <%= @essay.student_name %></li>
+  <li style='margin: 20px;'><strong>Applicant type</strong>: <%= @essay.applicant_type %></li>
+  <li style='margin: 20px;'><strong>Country applying to</strong>: <%= @essay.country_applying %></li>
+  <% if @essay.university_applying.present? %>
+    <li style='margin: 20px;'><strong>University applying to</strong>: <%= @essay.university_applying %></li>
+  <% end %>
+  <% if @essay.program_applying.present? %>
+    <li style='margin: 20px;'><strong>Program applying to</strong>: <%= @essay.program_applying %></li>
+  <% end %>
+  <li style='margin: 20px;'><strong>Essay prompt</strong>: <%= @essay.prompt %></li>
+  <li style='margin: 20px;'><strong>Essay word count</strong>: <%= @essay.word_count %></li>
+  <li style='margin: 20px;'><strong>Essay price</strong>: USD <%= @essay.price %></li>
+</ul>
+
+<p style='margin: 20px;'>If anything was incorrectly submitted, do let us know by replying to this email. Otherwise, we'll be in touch with you soon!</p>
+
+<p style='margin: 20px;'>Best regards,</p>
+
+<p style='margin: 20px;'>The Origo Team</p>

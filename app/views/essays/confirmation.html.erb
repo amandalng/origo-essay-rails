@@ -16,7 +16,7 @@
 
 <p class="mb-0 mt-3"><strong>Essay prompt</strong>: <%= @essay.prompt %></p>
 <p class="mb-0"><strong>Essay word count</strong>: <%= @essay.word_count %> words</p>
-<p><strong>Price</strong>: $<%= @essay.essay_price %> (USD)</p>
+<p><strong>Price</strong>: USD <%= @essay.essay_price %></p>
 
 <p class="text-center"><strong>Essay:</strong></p>
 <p><%= simple_format(strip_tags(@essay.essay)) %></p>

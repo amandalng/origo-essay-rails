@@ -32,7 +32,7 @@ class EssayMailer < ApplicationMailer
     mail(
       to: @essay.email,
       bcc: @admin_emails,
-      subject: "Origo Essays: Confirmation & Payment"
+      subject: "Origo Essays: We have received your submission!"
       )
   end
 
