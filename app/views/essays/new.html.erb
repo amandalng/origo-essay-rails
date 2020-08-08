@@ -7,8 +7,8 @@
 <%= f.input :email %>
 <%= f.input :applicant_type, label: "Applicant type", as: :radio_buttons, collection: [['Undergraduate', 'Undergraduate'], ['Graduate', 'Graduate']], label_method: :second, value_method: :first %>
 <%= f.input :country_applying, label: "Country applying to", as: :radio_buttons, collection: [['US', 'US'], ['CA', 'CA'], ['UK', 'UK'], ['Other', 'Other']], label_method: :second, value_method: :first %>
-<%= f.input :university_applying, label: "University applying to (if applicable)" %>
-<%= f.input :program_applying, label: "Program applying to (if applicable)" %>
+<%= f.input :university_applying, label: "University applying to" %>
+<%= f.input :program_applying, label: "Program applying to" %>
 <%= f.input :prompt, label: "Essay prompt" %>
 <%= f.input :word_count, label: "Essay word count", hint: "If your essay word prompt is by character count, please divide the characters by 6 to get an approximate word count (E.g. UCAS 4,000 characters is 667 words.)" %>
 <%= f.input :essay, label: "Please input your essay draft here.", hint: "Should be a simple copy and paste of your full draft!", :as => :text, :input_html => { 'rows' => 8}  %>
