@@ -1,6 +1,10 @@
 <p style='text-align: center; margin: 20px;'>Hey team!</p>
 
-<p style='text-align: center; margin: 20px;'>We just received a new essay to review. Here are submission details:</p>
+<p style='text-align: center; margin: 20px;'>We just received a new essay to review.
+
+<p style='margin: 20px;'>Please send the student an invoice ASAP via Xendit, screenshot this email, and let the Origo group know when the invoice is sent. Once payment has been made, please assign this essay to a reviewer!</p>
+
+<p style='text-align: center; margin: 20px;'>Submission Details:</p>
 
 <p style='margin: 20px;'><strong>Student Name</strong>: <%= @essay.student_name %></p>
 <p style='margin: 20px;'><strong>Email</strong>: <%= @essay.email %></p>
@@ -14,5 +18,3 @@
 <% end %>
 <p style='margin: 20px;'><strong>Essay Prompt</strong>: <%= @essay.prompt %> (<%= @essay.word_count %> words)</p>
 <p style='margin: 20px;'><strong>Payment Amount</strong>: $<%= @essay.essay_price %> (USD)</p>
-
-<p style='text-align: center; margin: 20px;'><strong>Once payment has been made, please assign this essay to a reviewer!</strong></p>

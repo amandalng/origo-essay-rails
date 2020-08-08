@@ -1,6 +1,10 @@
 Hey team!
 
-We just received a new essay to review. Here are submission details:
+We just received a new essay to review.
+
+Please send the student an invoice ASAP via Xendit, screenshot this email, and let the Origo group know when the invoice is sent. Once payment has been made, please assign this essay to a reviewer!
+
+Submission Details:
 
 Student Name: <%= @essay.student_name %>
 Email: <%= @essay.email %>
@@ -12,7 +16,5 @@ Country Applying To: <%= @essay.country_applying %>
 <% if @essay.program_applying.present? %>
   Program Applying To: <%= @essay.program_applying %>
 <% end %>
-Essay prompt: <%= @essay.prompt %> (<%= @essay.word_count %> words)
+Essay Prompt: <%= @essay.prompt %> (<%= @essay.word_count %> words)
 Payment Amount: $<%= @essay.essay_price %> (USD)
-
-Once payment has been made, please assign this essay to a reviewer!
