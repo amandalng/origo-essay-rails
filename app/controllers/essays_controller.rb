@@ -17,7 +17,7 @@ class EssaysController < ApplicationController
       EssayMailer.with(essay: @essay).new_submission.deliver_now
       redirect_to confirmation_essay_path(@essay)
     else
-      redirect_to new_essay_path(@essay), notice: "Submission unsuccessful. Please try again, and fill all required fields."
+      render 'new'
     end
   end
 
