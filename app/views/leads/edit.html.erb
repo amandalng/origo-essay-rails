@@ -1,7 +1,5 @@
 <% if @lead.user.nil? %>
-  <%= link_to "< back", user_lead_path(current_user, @lead), class: "back-btn" %>
-
-  <h2 class="mb-4">Assign PIC for <%= @lead.full_name %></h2>
+  <h2 class="mb-4 header">Assign PIC for <%= @lead.full_name %></h2>
 
   <%= simple_form_for @lead do |f| %>
     <%= f.input :user, label: "Administrator name", collection: @administrator_names, include_blank: false, include_hidden: false %>
