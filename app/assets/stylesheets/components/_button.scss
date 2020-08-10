@@ -12,6 +12,18 @@
   opacity: 100%;
 }
 
+.banner-btn {
+  padding: 8px 20px;
+  background-color: $dark-teal;
+  color: $light-teal;
+  border-radius: 50px;
+}
+
+.banner-btn:hover {
+  text-decoration: none;
+  color: white;
+}
+
 .secondary-btn {
   padding: 8px 20px;
   background-color: $gray;
@@ -28,10 +40,10 @@
 
 .reassign-btn {
   font-size: 14px;
-  margin: 0;
 }
 
 .back-btn {
+  margin-top: 100px;
   opacity: 90%;
 }
 

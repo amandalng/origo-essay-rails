@@ -1,0 +1,19 @@
+<% if @show_banner == true %>
+
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url(https://images.unsplash.com/photo-1499750310107-5fef28a66643?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80">
+  <div class="container text-center">
+    <h1 class="mb-3">Let us help take your college essays across the finish line.</h1>
+    <h4 class="mb-5">For each essay submitted, we provide actionable feedback touching on essay concept, structure, and content, followed by a one-on-one session with an essay specialist to ensure your work is submission-ready!</h4>
+    <%= link_to "Submit an Essay!", new_essay_path, class: "banner-btn" %>
+  </div>
+
+  <div class="arrow text-center">
+    <a href="#how-it-works">
+      <p class="mb-4">See how we work</p>
+      <i class="fas fa-chevron-down mt-0"></i>
+    </a>
+  </div>
+</div>
+
+
+<% end %>

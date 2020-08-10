@@ -1,9 +1,8 @@
 <% if user_signed_in? %>
   <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-     <%= link_to user_essays_path(current_user), class: "navbar-brand" do %>
-        <!-- <img src="./../../assets/images/logo.png" alt="logo"> -->
-        <img src="https://origoedu.com/images/logo.svg" alt="logo">
-     <% end %>
+    <%= link_to user_essays_path(current_user), class: "navbar-brand" do %>
+      <img src="https://origoedu.com/images/logo.svg" alt="logo">
+    <% end %>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -41,28 +40,23 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
-
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav align-items-center mr-auto">
         <li class="nav-item">
-          <%= link_to "About", "https://origoedu.com/", target: "_blank", class: "nav-btn" %>
+          <%= link_to "Home", root_path, class: "nav-btn" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Services", "https://origoedu.com/en/services", target: "_blank", class: "nav-btn" %>
+          <%= link_to "About Us", "https://origoedu.com/", target: "_blank", class: "nav-btn" %>
+        </li>
+
+        <li class="nav-item">
+          <%= link_to "How We Work", root_path(anchor: 'how-it-works'), class: "nav-btn" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Pricing", pricing_essays_path, class: "nav-btn" %>
+          <%= link_to "Pricing", root_path(anchor: 'pricing'), class: "nav-btn" %>
         </li>
-        <% if false %>
-          <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-btn" %>
-          </li>
-        <% end %>
         <li class="nav-item">
-          <!-- Button trigger modal -->
-            <button type="button" class="btn nav-big-btn" data-toggle="modal" data-target="#leadModal" href="/leads/new">
-              Free Consultation
-            </button>
+          <%= link_to "Submit an Essay!", new_essay_path, class: "btn nav-big-btn" %>
         </li>
       </ul>
     </div>
