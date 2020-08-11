@@ -1,14 +1,14 @@
-.main-container {
-  margin: 50px 15%;
+.container {
+  margin: 100px 15%;
   margin-bottom: 120px;
 }
 
-.main-container .header {
+.container .header {
   padding-top: 80px;
 }
 
-.main-container h1,
-.main-container h2 {
+.container h1,
+.container h2 {
   text-align: center;
 }
 
@@ -41,7 +41,8 @@
   width: 36px;
   border-radius: 50%;
   border: 2px solid $medium-teal;
-  background-color: $light-teal;
+  background-color: $medium-teal;
+  color: white;
   font-size: 18px;
   font-weight: bolder;
   position: absolute;
