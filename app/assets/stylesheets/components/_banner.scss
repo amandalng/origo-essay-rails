@@ -7,6 +7,13 @@
   position: relative;
 }
 
+@media(max-width: 768px) {
+  .banner {
+    padding: 10vh 0;
+  }
+}
+
+
 .banner h1 {
   margin: 0;
   color: white;
