@@ -11,6 +11,10 @@ class ApplicationController < ActionController::Base
     user_essays_path(current_user)
   end
 
+  def after_update_path_for(resource)
+    user_essays_path(current_user)
+  end
+
   protect_from_forgery with: :exception
 
   before_action :configure_permitted_parameters, if: :devise_controller?

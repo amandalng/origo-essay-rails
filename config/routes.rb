@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users do
+  devise_for :users, :controllers => { :registrations => 'users/registrations' } do
     get ':user/edit-profile' => 'devise/registration#edit', :as => :edit_user_profile
   end
 
