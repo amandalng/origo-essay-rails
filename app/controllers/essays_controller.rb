@@ -69,7 +69,6 @@ class EssaysController < ApplicationController
   def update
     @essay = Essay.find(params[:id])
 
-
     if params["essay"].present?
       @user = User.find_by_full_name(params["essay"]["user"])
       @essay.user = @user
@@ -92,34 +91,11 @@ class EssaysController < ApplicationController
       redirect_to user_essays_path(current_user)
       if @essay.reviewed == false && @essay.assigned == true
         EssayMailer.with(essay: @essay).assign_reviewer.deliver_now
-        # EssayMailer.with(essay: @essay).intro_reviewer.deliver_now
-      # elsif @essay.reviewed == false
-
-      # elsif @essay.assigned == false
-
-      # elsif @essay.received == false
-
       end
     else
       render "edit"
     end
   end
-
-  # def mark
-  #   @essay = Essay.find(params[:id])
-  #   if @essay.meeting_scheduled?
-  #     @essay.completed = true
-  #   elsif @essay.reviewed?
-  #     @essay.meeting_scheduled = true
-  #   elsif @essay.assigned?
-  #     @essay.reviewed = true
-  #   elsif @essay.received?
-  #     @essay.assigned = true
-  #   end
-  #   @essay.save
-
-  #   redirect_to user_essays_path(current_user)
-  # end
 
   def pricing
   end
