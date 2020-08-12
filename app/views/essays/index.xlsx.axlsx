@@ -1,15 +1,15 @@
 wb = xlsx_package.workbook
-wb.add_worksheet(name: "Essays") do |sheet|
-  @essays.each do |essay|
-    sheet.add_row [
-    essay.date_submitted,
-    essay.student_name,
-    essay.applicant_type,
-    essay.country_applying,
-    essay.university_applying,
-    essay.program_applying,
-    essay.reviewer_name,
-    essay.essay_status
-    ]
+
+wb.styles do |style|
+  project_heading = style.add_style(b: true, sz: 14)
+  heading = style.add_style(b:true)
+
+  wb.add_worksheet(name: "Essays") do |sheet|
+    # Create the header row
+    sheet.add_row ["Date Submitted", "Student Name", "Applicant Type", "Country Applying", "University Applying", "Program Applying", "Editor Name", "Essay Status" ]
+    # Create entries for each item
+    @essays.each do |essay|
+      sheet.add_row [essay.date_submitted, essay.student_name, essay.applicant_type, essay.country_applying, essay.university_applying, essay.program_applying, essay.reviewer_name, essay.essay_status ]
+    end
   end
 end

@@ -50,7 +50,7 @@ class Essay < ApplicationRecord
     elsif reviewed?
       "Essay reviewed"
     elsif assigned?
-      "Reviewer assigned"
+      "Editor assigned"
     else
       "Essay received"
     end
@@ -66,7 +66,7 @@ class Essay < ApplicationRecord
     elsif assigned?
       "Mark essay reviewed"
     else
-      "Assign reviewer"
+      "Assign editor"
     end
   end
 

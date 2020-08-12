@@ -3,5 +3,6 @@ class PagesController < ApplicationController
 
   def home
     @show_banner = true
+    @show_footer = true
   end
 end

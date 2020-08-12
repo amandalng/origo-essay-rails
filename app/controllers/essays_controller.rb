@@ -4,6 +4,8 @@ class EssaysController < ApplicationController
   def new
     @essay = Essay.new
     @lead = Lead.new
+
+    @show_footer = true
   end
 
   def create
