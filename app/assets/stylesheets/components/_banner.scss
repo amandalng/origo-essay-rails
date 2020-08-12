@@ -1,7 +1,7 @@
 .banner {
   background-size: cover;
   background-position: center;
-  padding: 25vh 0;
+  padding: 20vh 0;
   margin-top: 48px;
   height: calc(100vh - 48px);
   position: relative;
@@ -9,10 +9,9 @@
 
 @media(max-width: 768px) {
   .banner {
-    padding: 10vh 0;
+    padding: 5vh 0;
   }
 }
-
 
 .banner h1 {
   margin: 0;
@@ -57,11 +56,15 @@
 
 .arrow {
   color: white;
-  font-size: 24px;
+  font-size: 20px;
   position: absolute;
   bottom: 20px;
   left: 50%;
   transform: translate(-50%, 0);
+}
+
+.arrow p {
+  margin-bottom: 36px;
 }
 
 .fa-chevron-down {
