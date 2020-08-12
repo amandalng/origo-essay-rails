@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_08_110445) do
+ActiveRecord::Schema.define(version: 2020_08_12_205656) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,6 +38,8 @@ ActiveRecord::Schema.define(version: 2020_08_08_110445) do
     t.string "price_currency", default: "USD", null: false
     t.text "essay"
     t.boolean "agree"
+    t.boolean "invoice_sent"
+    t.boolean "payment_received"
     t.index ["user_id"], name: "index_essays_on_user_id"
   end
 

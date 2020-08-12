@@ -1,38 +1,94 @@
-<%= link_to "< back", :back, class: "back-btn" %>
-
 <h2 class="mb-5">Submission Details</h2>
 
 <div class="mini-container">
-  <h5 class="text-center">Student</h5>
-  <p>Student name: <%= @essay.student_name %></p>
-  <p>Email: <%= @essay.email %></p>
-  <p>Applicant type: <%= @essay.applicant_type %></p>
-  <p>Country applying to: <%= @essay.country_applying %></p>
+  <h5 class="text-center mb-2"><strong>Student</strong></h5>
+  <p><strong>Student name</strong>: <%= @essay.student_name %></p>
+  <p><strong>Email</strong>: <%= @essay.email %></p>
+  <p><strong>Applicant type</strong>: <%= @essay.applicant_type %></p>
+  <p><strong>Country applying to</strong>: <%= @essay.country_applying %></p>
 </div>
 
 <div class="mini-container">
-  <h5 class="text-center">Essay</h5>
-   <p>Essay prompt: <%= @essay.prompt %> (<%= @essay.word_count %> words)</p>
-   <p>University applying to:
+  <h5 class="text-center mb-2"><strong>Essay</strong></h5>
+   <p><strong>Essay prompt</strong>: <%= @essay.prompt %> (<%= @essay.word_count %> words)</p>
+   <p><strong>University applying to</strong>:
     <% if @essay.university_applying == "" %>
       Not specified
     <% else %>
       <%= @essay.university_applying %></p>
     <% end %>
-  <p>Program applying to:
+  <p><strong>Program applying to</strong>:
     <% if @essay.program_applying == "" %>
       Not specified
     <% else %>
       <%= @essay.program_applying %></p>
     <% end %>
-  <p class="mt-2">Price: $<%= @essay.essay_price %></p>
+  <p class="mt-2"><strong>Price</strong>: $<%= @essay.essay_price %></p>
 </div>
 
 <div class="mini-container mb-5">
-  <h5 class="text-center">Status</h5>
-  <% if @essay.assigned == true %>
-    <p>Reviewer: <%= @essay.reviewer_name %></p>
-  <% end %>
-  <p>Status: <%= @essay.essay_status %></p>
-  <p>Next Step: <%= @essay.next_step %></p>
+  <h5 class="text-center mb-2"><strong>Status</strong></h5>
+
+  <p class="mb-3"><strong>Status</strong>: <%= @essay.essay_status %>  <% if @essay.assigned == true %>
+    (Editor: <%= @essay.reviewer_name %>)
+  <% end %></p>
+  <table class="table text-center">
+    <thead class="thead-light">
+      <tr>
+        <th scope="col">Essay received</th>
+        <th scope="col">Invoice sent</th>
+        <th scope="col">Payment received</th>
+        <th scope="col">Editor assigned</th>
+        <th scope="col">Essay reviewed</th>
+        <th scope="col">Meeting scheduled</th>
+        <th scope="col">Meeting completed</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="align-middle">
+          <% if @essay.received? %>
+            <i class="fas fa-check"></i>
+          <% end %>
+        </td>
+        <td class="align-middle">
+          <% if @essay.invoice_sent? %>
+            <i class="fas fa-check"></i>
+          <% end %>
+        </td>
+        <td class="align-middle">
+          <% if @essay.payment_received? %>
+            <i class="fas fa-check"></i>
+          <% end %>
+        </td>
+        <td class="align-middle">
+          <% if @essay.assigned? %>
+            <i class="fas fa-check"></i>
+          <% end %>
+        </td>
+        <td class="align-middle">
+          <% if @essay.reviewed? %>
+            <i class="fas fa-check"></i>
+          <% end %>
+        </td>
+        <td class="align-middle">
+          <% if @essay.meeting_scheduled? %>
+            <i class="fas fa-check"></i>
+          <% end %>
+        </td>
+        <td class="align-middle">
+          <% if @essay.completed? %>
+            <i class="fas fa-check"></i>
+          <% end %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <p><strong>Next Step</strong>: <% if @essay.completed? %>
+            Done!
+          <% elsif @essay.next_step == "Assign editor" %>
+            <%= link_to @essay.next_step, edit_essay_path(@essay) %>
+          <% else %>
+            <%= link_to @essay.next_step, essay_path(@essay), :method => :patch, data: { confirm: "Are you sure?" } %>
+          <% end %></p>
 </div>

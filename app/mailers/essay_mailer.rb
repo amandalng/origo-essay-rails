@@ -13,7 +13,10 @@ class EssayMailer < ApplicationMailer
       end
     end
     @essay = params[:essay]
-
+    attachments["#{@essay.student_name}_#{@essay.word_count} words.docx"] = {
+      :mime_type => 'application/docx',
+      :content => @essay.essay
+    }
     mail(
       to: @admin_emails,
       subject: "#{@essay.student_name} just submitted an essay!"

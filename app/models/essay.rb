@@ -51,6 +51,10 @@ class Essay < ApplicationRecord
       "Essay reviewed"
     elsif assigned?
       "Editor assigned"
+    elsif payment_received?
+      "Payment received"
+    elsif invoice_sent?
+      "Invoice sent"
     else
       "Essay received"
     end
@@ -65,8 +69,12 @@ class Essay < ApplicationRecord
       "Mark meeting scheduled"
     elsif assigned?
       "Mark essay reviewed"
-    else
+    elsif payment_received?
       "Assign editor"
+    elsif invoice_sent?
+      "Mark payment received"
+    else
+      "Mark invoice sent"
     end
   end
 

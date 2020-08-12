@@ -29,7 +29,7 @@ class EssaysController < ApplicationController
       respond_to do |format|
         format.html
         format.xlsx {
-          response.headers['Content-Disposition'] = 'attachment; filename="all_essays.xlsx"'
+          response.headers['Content-Disposition'] = 'attachment; filename="All_Essays.xlsx"'
         }
       end
     else
@@ -69,6 +69,7 @@ class EssaysController < ApplicationController
   def update
     @essay = Essay.find(params[:id])
 
+
     if params["essay"].present?
       @user = User.find_by_full_name(params["essay"]["user"])
       @essay.user = @user
@@ -79,13 +80,17 @@ class EssaysController < ApplicationController
       @essay.meeting_scheduled = true
     elsif @essay.assigned?
       @essay.reviewed = true
-    elsif @essay.received?
+    elsif @essay.payment_received?
       @essay.assigned = true
+    elsif @essay.invoice_sent?
+      @essay.payment_received = true
+    elsif @essay.received?
+      @essay.invoice_sent = true
     end
 
     if @essay.save
       redirect_to user_essays_path(current_user)
-      if @essay.reviewed == false
+      if @essay.reviewed == false && @essay.assigned == true
         EssayMailer.with(essay: @essay).assign_reviewer.deliver_now
         # EssayMailer.with(essay: @essay).intro_reviewer.deliver_now
       # elsif @essay.reviewed == false

@@ -16,11 +16,8 @@
       <th scope="col">Date Submitted</th>
       <% if current_user.administrator == true %>
         <th scope="col">Editor</th>
-        <th scope="col">Assigned</th>
       <% end %>
-      <th scope="col">Reviewed</th>
-      <th scope="col">Meeting Scheduled</th>
-      <th scope="col">Completed</th>
+      <th scope="col">Status</th>
       <th scope="col">Next Step</th>
     </tr>
   </thead>
@@ -47,7 +44,7 @@
               <%= essay.reviewer_name %>
               <% if essay.reviewed? == false %>
                 <%= link_to edit_essay_path(essay) do %>
-                  <p class="reassign-btn">Reassign</p>
+                  <p class="reassign-btn mb-0">Reassign</p>
                 <% end %>
               <% end %>
             <% else %>
@@ -56,40 +53,13 @@
           </td>
         <% end %>
 
-        <% if current_user.administrator == true %>
-          <td class="align-middle">
-            <% if essay.assigned? %>
-              <i class="fas fa-check"></i>
-            <% else %>
-              -
-            <% end %>
-          </td>
-        <% end %>
         <td class="align-middle">
-          <% if essay.reviewed? %>
-            <i class="fas fa-check"></i>
-          <% else %>
-            -
-          <% end %>
-        </td>
-        <td class="align-middle">
-          <% if essay.meeting_scheduled? %>
-            <i class="fas fa-check"></i>
-          <% else %>
-            -
-          <% end %>
-        </td>
-        <td class="align-middle">
-          <% if essay.completed? %>
-            <i class="fas fa-check"></i>
-          <% else %>
-            -
-          <% end %>
+          <%= essay.essay_status %>
         </td>
         <td class="align-middle">
           <% if essay.completed? %>
             Done!
-          <% elsif essay.next_step == "Assign reviewer" %>
+          <% elsif essay.next_step == "Assign editor" %>
             <%= link_to essay.next_step, edit_essay_path(essay) %>
           <% else %>
             <%= link_to essay.next_step, essay_path(essay), :method => :patch, data: { confirm: "Are you sure?" } %>
