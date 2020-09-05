@@ -24,6 +24,9 @@
       <%= @essay.program_applying %></p>
     <% end %>
   <p class="mt-2"><strong>Price</strong>: $<%= @essay.essay_price %></p>
+  <% if @essay.discountcode.present? && @essay.discountcode != "" %>
+    <p class="mt-2"><strong>Discount Code</strong>: $<%= @essay.discountcode %></p>
+  <% end %>
 </div>
 
 <div class="mini-container mb-5">

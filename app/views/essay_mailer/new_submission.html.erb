@@ -18,3 +18,7 @@
 <% end %>
 <p style='margin: 20px;'><strong>Essay Prompt</strong>: <%= @essay.prompt %> (<%= @essay.word_count %> words)</p>
 <p style='margin: 20px;'><strong>Payment Amount</strong>: USD <%= @essay.essay_price %></p>
+
+<% if @essay.discountcode.present? && @essay.discountcode != "" %>
+  <p style='margin: 20px;'><strong>Discount Code</strong>: <%= @essay.discountcode %> -- <strong>please adjust price for discount code.</strong></p>
+<% end %>
