@@ -1,0 +1,13 @@
+<p style='text-align: center; margin: 20px;'>Hey team!</p>
+
+<p style='text-align: center; margin: 20px;'>A new lead just came in!</p>
+
+<p style='margin: 20px;'>A student / parent has expressed interest in submitting multiple essays - please reach out asap!</p>
+
+<p style='text-align: center; margin: 20px;'>Lead Details:</p>
+
+<p style='margin: 20px;'>Full Name: <strong><%= @lead.full_name %></strong></p>
+<p style='margin: 20px;'>Email: <strong><%= @lead.email %></strong></p>
+<% if @lead.phone.present? %>
+  <p style='margin: 20px;'>Phone: <strong><%= @lead.phone %></strong></p>
+<% end %>

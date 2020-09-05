@@ -5,6 +5,7 @@ class LeadsController < ApplicationController
     @lead = Lead.new(lead_params)
 
     if @lead.save
+      LeadMailer.with(lead: @lead).new_lead.deliver_now
       redirect_to root_path, notice: "We'll be in touch!"
     else
       redirect_to new_essay_path, notice: "Please provide your full name and email address."

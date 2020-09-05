@@ -1,0 +1,13 @@
+Hey team!
+
+A new lead just came in!
+
+A student / parent has expressed interest in submitting multiple essays - please reach out asap!
+
+Lead Details:
+
+Full Name: <strong><%= @lead.full_name %></strong>
+Email: <strong><%= @lead.email %></strong>
+<% if @lead.phone.present? %>
+  Phone: <strong><%= @lead.phone %></strong>
+<% end %>
