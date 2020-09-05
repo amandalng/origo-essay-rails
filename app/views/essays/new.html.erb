@@ -9,15 +9,16 @@
 <%= f.input :program_applying, label: "Program applying to" %>
 <%= f.input :prompt, label: "Essay prompt" %>
 <%= f.input :word_count, label: "Essay word count", hint: "If your essay word prompt is by character count, please divide the characters by 6 to get an approximate word count (E.g. UCAS 4,000 characters is 667 words.)" %>
-<%= f.input :essay, label: "Please input your essay draft here.", hint: "Should be a simple copy and paste of your full draft!", :as => :text, :input_html => { 'rows' => 8}  %>
+<%= f.input :essay, label: "Please input your essay draft here.", hint: "Should be a simple copy and paste of your full draft!", :as => :text, :input_html => { 'rows' => 5}  %>
 
 <%#= f.label :attachment, label: "Please upload your essay." %>
 
 <%#= f.file_field :attachment %>
 
 <%= f.input :notes, label: "Any additional remarks?", placeholder: "E.g. Having some trouble with essay organization - would appreciate feedback focused on essay structure!" %>
+<%= f.input :discountcode, label: "Discount Code" %>
 <br>
-<%= f.input :agree, as: :boolean, label: " I agree that Origo Edu will not write my essay for me." %>
+<%= f.input :agreement, as: :boolean, label: " I agree that Origo Edu will not write my essay for me." %>
 
 <div class="center">
   <div class="d-flex justify-content-center price-tag mt-4">

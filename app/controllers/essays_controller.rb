@@ -103,6 +103,6 @@ class EssaysController < ApplicationController
   private
 
   def essay_params
-    params.require(:essay).permit(:student_name, :email, :applicant_type, :country_applying, :university_applying, :program_applying, :prompt, :word_count, :notes, :attachment, :user, :essay, :agree)
+    params.require(:essay).permit(:student_name, :email, :applicant_type, :country_applying, :university_applying, :program_applying, :prompt, :word_count, :notes, :attachment, :user, :essay, :agreement, :discountcode)
   end
 end

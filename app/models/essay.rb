@@ -9,7 +9,8 @@ class Essay < ApplicationRecord
   validates :prompt, presence: true, :length => { :minimum => 2 }
   validates :word_count, presence: true, :numericality => { :greater_than_or_equal_to => 100 }
   validates :essay, presence: true
-  validates :agree, presence: { message: "must be checked"}
+  validates :agreement, presence: { message: "must be checked."}
+  validates :discountcode, :inclusion => { :in => ["", "ORIGOESSAY25", "FRIENDSOFORIGO"] }
 
   mount_uploader :attachment, AttachmentUploader
   # validates :attachment, presence: true
