@@ -1,13 +1,13 @@
 <h2 class="mb-5">Lead Details</h2>
 
 <div class="mini-container">
-  <p><strong>Name</strong>: <%= @lead.full_name %></p>
-  <p><strong>Email</strong>: <%= @lead.email %></p>
-  <p><strong>Phone</strong>: <%= @lead.phone %></p>
+  <p>Name: <strong><%= @lead.full_name %></strong></p>
+  <p>Email: <strong><%= @lead.email %></strong></p>
+  <p>Phone: <strong><%= @lead.phone %></strong></p>
   <br>
-  <p><strong>Current status</strong>: <%= @lead.current_status %></p>
+  <p>Current status: <strong><%= @lead.current_status %></strong></p>
   <br>
-  <p class="mb-2"><strong>Notes</strong>: <%= @lead.notes %></p>
+  <p class="mb-2">Notes: <strong><%= @lead.notes %></strong></p>
   <%= link_to edit_lead_path(@lead) do %>
     <i class="fas fa-edit"></i>
   <% end %>

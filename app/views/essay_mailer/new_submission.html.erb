@@ -6,19 +6,19 @@
 
 <p style='text-align: center; margin: 20px;'>Submission Details:</p>
 
-<p style='margin: 20px;'><strong>Student Name</strong>: <%= @essay.student_name %></p>
-<p style='margin: 20px;'><strong>Email</strong>: <%= @essay.email %></p>
-<p style='margin: 20px;'><strong>Applicant Type</strong>: <%= @essay.applicant_type %></p>
-<p style='margin: 20px;'><strong>Country Applying To</strong>: <%= @essay.country_applying %></p>
+<p style='margin: 20px;'>Student Name: <strong><%= @essay.student_name %></strong></p>
+<p style='margin: 20px;'>Email: <strong><%= @essay.email %></strong></p>
+<p style='margin: 20px;'>Applicant Type: <strong><%= @essay.applicant_type %></strong></p>
+<p style='margin: 20px;'>Country Applying To: <strong><%= @essay.country_applying %></strong></p>
 <% if @essay.university_applying.present? %>
-  <p style='margin: 20px;'><strong>University Applying To</strong>: <%= @essay.university_applying %></p>
+  <p style='margin: 20px;'>University Applying To: <strong><%= @essay.university_applying %></strong></p>
 <% end %>
 <% if @essay.program_applying.present? %>
-  <p style='margin: 20px;'><strong>Program Applying To</strong>: <%= @essay.program_applying %></p>
+  <p style='margin: 20px;'>Program Applying To: <strong><%= @essay.program_applying %></strong></p>
 <% end %>
-<p style='margin: 20px;'><strong>Essay Prompt</strong>: <%= @essay.prompt %> (<%= @essay.word_count %> words)</p>
-<p style='margin: 20px;'><strong>Payment Amount</strong>: USD <%= @essay.essay_price %></p>
+<p style='margin: 20px;'>Essay Prompt: <%= @essay.prompt %> (<%= @essay.word_count %> words)</p>
+<p style='margin: 20px;'>Payment Amount: <strong>USD <%= @essay.essay_price %></strong></p>
 
 <% if @essay.discountcode.present? && @essay.discountcode != "" %>
-  <p style='margin: 20px;'><strong>Discount Code</strong>: <%= @essay.discountcode %> -- <strong>please adjust price for discount code.</strong></p>
+  <p style='margin: 20px;'>Discount Code: <strong><%= @essay.discountcode %> -- please adjust price for discount code.</strong></p>
 <% end %>

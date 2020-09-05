@@ -2,39 +2,39 @@
 
 <div class="mini-container">
   <h5 class="text-center mb-2"><strong>Student</strong></h5>
-  <p><strong>Student name</strong>: <%= @essay.student_name %></p>
-  <p><strong>Email</strong>: <%= @essay.email %></p>
-  <p><strong>Applicant type</strong>: <%= @essay.applicant_type %></p>
-  <p><strong>Country applying to</strong>: <%= @essay.country_applying %></p>
+  <p>Student name: <strong><%= @essay.student_name %></strong></p>
+  <p>Email: <strong><%= @essay.email %></strong></p>
+  <p>Applicant type: <strong><%= @essay.applicant_type %></strong></p>
+  <p>Country applying to: <strong><%= @essay.country_applying %></strong></p>
 </div>
 
 <div class="mini-container">
   <h5 class="text-center mb-2"><strong>Essay</strong></h5>
-   <p><strong>Essay prompt</strong>: <%= @essay.prompt %> (<%= @essay.word_count %> words)</p>
-   <p><strong>University applying to</strong>:
+   <p>Essay prompt: <strong><%= @essay.prompt %> (<%= @essay.word_count %> words)</strong></p>
+   <p>University applying to:
     <% if @essay.university_applying == "" %>
-      Not specified
+      <strong>Not specified</strong>
     <% else %>
-      <%= @essay.university_applying %></p>
+      <strong><%= @essay.university_applying %></strong></p>
     <% end %>
-  <p><strong>Program applying to</strong>:
+  <p>Program applying to:
     <% if @essay.program_applying == "" %>
-      Not specified
+      <strong>Not specified</strong>
     <% else %>
-      <%= @essay.program_applying %></p>
+      <strong><%= @essay.program_applying %></strong></p>
     <% end %>
-  <p class="mt-2"><strong>Price</strong>: $<%= @essay.essay_price %></p>
+  <p class="mt-2">Price: <strong>$<%= @essay.essay_price %></strong></p>
   <% if @essay.discountcode.present? && @essay.discountcode != "" %>
-    <p class="mt-2"><strong>Discount Code</strong>: $<%= @essay.discountcode %></p>
+    <p class="mt-2">Discount Code: <strong><%= @essay.discountcode %></strong></p>
   <% end %>
 </div>
 
 <div class="mini-container mb-5">
   <h5 class="text-center mb-2"><strong>Status</strong></h5>
 
-  <p class="mb-3"><strong>Status</strong>: <%= @essay.essay_status %>  <% if @essay.assigned == true %>
+  <p class="mb-3">Status: <strong><%= @essay.essay_status %>  <% if @essay.assigned == true %>
     (Editor: <%= @essay.reviewer_name %>)
-  <% end %></p>
+  <% end %></strong></p>
   <table class="table text-center">
     <thead class="thead-light">
       <tr>
@@ -87,11 +87,11 @@
       </tr>
     </tbody>
   </table>
-  <p><strong>Next Step</strong>: <% if @essay.completed? %>
+  <p>Next Step: <% if @essay.completed? %>
             Done!
           <% elsif @essay.next_step == "Assign editor" %>
-            <%= link_to @essay.next_step, edit_essay_path(@essay) %>
+            <strong><%= link_to @essay.next_step, edit_essay_path(@essay) %>
           <% else %>
-            <%= link_to @essay.next_step, essay_path(@essay), :method => :patch, data: { confirm: "Are you sure?" } %>
+            <strong><%= link_to @essay.next_step, essay_path(@essay), :method => :patch, data: { confirm: "Are you sure?" } %></strong>
           <% end %></p>
 </div>

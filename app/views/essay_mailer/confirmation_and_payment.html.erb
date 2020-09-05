@@ -7,18 +7,18 @@
 <p style='margin: 20px;'>For your reference, please see your submission details below:</p>
 
 <ul>
-  <li style='margin: 20px;'><strong>Student name</strong>: <%= @essay.student_name %></li>
-  <li style='margin: 20px;'><strong>Applicant type</strong>: <%= @essay.applicant_type %></li>
-  <li style='margin: 20px;'><strong>Country applying to</strong>: <%= @essay.country_applying %></li>
+  <li style='margin: 20px;'>Student name: <strong><%= @essay.student_name %></strong></li>
+  <li style='margin: 20px;'>Applicant type: <strong><%= @essay.applicant_type %></strong></li>
+  <li style='margin: 20px;'>Country applying to: <strong><%= @essay.country_applying %></strong></li>
   <% if @essay.university_applying.present? %>
-    <li style='margin: 20px;'><strong>University applying to</strong>: <%= @essay.university_applying %></li>
+    <li style='margin: 20px;'>University applying to: <strong><%= @essay.university_applying %></strong></li>
   <% end %>
   <% if @essay.program_applying.present? %>
-    <li style='margin: 20px;'><strong>Program applying to</strong>: <%= @essay.program_applying %></li>
+    <li style='margin: 20px;'>Program applying to: <strong><%= @essay.program_applying %></strong></li>
   <% end %>
-  <li style='margin: 20px;'><strong>Essay prompt</strong>: <%= @essay.prompt %></li>
-  <li style='margin: 20px;'><strong>Essay word count</strong>: <%= @essay.word_count %></li>
-  <li style='margin: 20px;'><strong>Essay price</strong>: USD <%= @essay.essay_price %></li>
+  <li style='margin: 20px;'>Essay prompt: <strong><%= @essay.prompt %></strong></li>
+  <li style='margin: 20px;'>Essay word count: <strong><%= @essay.word_count %></strong></li>
+  <li style='margin: 20px;'>Essay price: <strong>USD <%= @essay.essay_price %></strong></li>
 </ul>
 
 <p style='margin: 20px;'>If anything was incorrectly submitted, do let us know by replying to this email. Otherwise, we'll be in touch with you soon!</p>
