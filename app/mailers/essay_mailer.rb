@@ -13,7 +13,7 @@ class EssayMailer < ApplicationMailer
       end
     end
     @essay = params[:essay]
-    attachments["#{@essay.student_name}_#{@essay.word_count} words.docx"] = {
+    attachments["#{@essay.date_submitted_filename}_#{@essay.student_name}.docx"] = {
       :mime_type => 'application/docx',
       :content => @essay.essay
     }
@@ -31,7 +31,10 @@ class EssayMailer < ApplicationMailer
       end
     end
     @essay = params[:essay]
-
+    attachments["#{@essay.date_submitted_filename}_#{@essay.student_name}.docx"] = {
+      :mime_type => 'application/docx',
+      :content => @essay.essay
+    }
     mail(
       to: @essay.email,
       bcc: @admin_emails,
@@ -47,7 +50,7 @@ class EssayMailer < ApplicationMailer
       end
     end
     @essay = params[:essay]
-    attachments["#{@essay.student_name}_#{@essay.word_count} words.docx"] = {
+    attachments["#{@essay.date_submitted_filename}_#{@essay.student_name}.docx"] = {
       :mime_type => 'application/docx',
       :content => @essay.essay
     }
