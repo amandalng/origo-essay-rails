@@ -1,5 +1,13 @@
 <h2 class="mb-5">Submission Details</h2>
 
+<% if @essay.spam == true %>
+  <div class="center mb-4">
+    <div class="div">
+      <i class="fas fa-user-times"></i>   &nbsp;<strong><u>Submission marked as spam</u></strong>   &nbsp;<i class="fas fa-user-times"></i>
+    </div>
+  </div>
+<% end %>
+
 <div class="mini-container">
   <h5 class="text-center mb-2"><strong>Student Information</strong></h5>
   <p>Student name: <strong><%= @essay.student_name %></strong></p>
@@ -32,9 +40,18 @@
 <div class="mini-container mb-5">
   <h5 class="text-center mb-2"><strong>Essay Status</strong></h5>
 
-  <p class="mb-3">Status: <strong><%= @essay.essay_status %>  <% if @essay.assigned == true %>
+  <p>Status: <strong><%= @essay.essay_status %>  <% if @essay.assigned == true %>
     (Editor: <%= @essay.reviewer_name %>)
   <% end %></strong></p>
+  <p class="mb-3">Next Step: <% if @essay.spam == true %>
+            <strong>None (marked as spam)</strong>
+          <% elsif @essay.completed? %>
+            <strong>Done!</strong>
+          <% elsif @essay.next_step == "Assign editor" %>
+            <strong><%= link_to @essay.next_step, edit_essay_path(@essay) %>
+          <% else %>
+            <strong><%= link_to @essay.next_step, essay_path(@essay), :method => :patch, data: { confirm: "Are you sure?" } %></strong>
+          <% end %></strong></p>
   <table class="table text-center">
     <thead class="thead-light">
       <tr>
@@ -87,11 +104,11 @@
       </tr>
     </tbody>
   </table>
-  <p>Next Step: <% if @essay.completed? %>
-            <strong>Done!</strong>
-          <% elsif @essay.next_step == "Assign editor" %>
-            <strong><%= link_to @essay.next_step, edit_essay_path(@essay) %>
-          <% else %>
-            <strong><%= link_to @essay.next_step, essay_path(@essay), :method => :patch, data: { confirm: "Are you sure?" } %></strong>
-          <% end %></p>
 </div>
+
+<% unless @essay.spam == true  %>
+  <div class="center">
+    <p>Is this spam? <strong><%= link_to "Mark as spam", mark_as_spam_essay_path(@essay), :method => :patch, data: { confirm: "Are you sure?" } %></strong></p>
+  </div>
+<% end %>
+

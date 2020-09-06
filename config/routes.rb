@@ -15,10 +15,12 @@ Rails.application.routes.draw do
     collection do
       get 'pricing'
       get 'complete'
+      get 'spam'
     end
     member do
       get 'confirmation'
       get 'download', format: 'docx'
+      patch 'mark_as_spam'
     end
     resources :orders, only: [:show, :create] do
       resources :payments, only: :new

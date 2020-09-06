@@ -3,7 +3,7 @@
 
 <div class="center">
   <div class="mb-4">
-    <%= link_to 'Download as .xlsx', user_essays_path(current_user, format: :xlsx), class: "mx-2" %> | <%= link_to 'View completed essays', complete_essays_path, class: "mx-2" %>
+    <%= link_to 'Download all as .xlsx', user_essays_path(current_user, format: :xlsx), class: "mx-2" %> | <%= link_to 'View completed essays', complete_essays_path, class: "mx-2" %> | <%= link_to "View essays marked as spam", spam_essays_path, class: "mx-2" %>
   </div>
 </div>
 

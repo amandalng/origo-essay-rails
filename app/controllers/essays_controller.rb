@@ -25,7 +25,7 @@ class EssaysController < ApplicationController
 
   def index
     if current_user.administrator == true
-      @essays = Essay.where(completed: false).sort_by &:created_at
+      @essays = Essay.where(completed: false, spam: false || nil).sort_by &:created_at
       respond_to do |format|
         format.html
         format.xlsx {
@@ -46,7 +46,11 @@ class EssaysController < ApplicationController
   end
 
   def complete
-    @essays = Essay.where(completed: true)
+    @essays = Essay.where(completed: true, spam: false || nil)
+  end
+
+  def spam
+    @essays = Essay.where(spam: true)
   end
 
   def download
@@ -101,12 +105,20 @@ class EssaysController < ApplicationController
     end
   end
 
+  def mark_as_spam
+    @essay = Essay.find(params[:id])
+    @essay.spam = true
+    @essay.save
+
+    redirect_to spam_essays_path
+  end
+
   def pricing
   end
 
   private
 
   def essay_params
-    params.require(:essay).permit(:student_name, :email, :applicant_type, :country_applying, :university_applying, :program_applying, :prompt, :word_count, :notes, :attachment, :user, :essay, :agreement, :discountcode)
+    params.require(:essay).permit(:student_name, :email, :applicant_type, :country_applying, :university_applying, :program_applying, :prompt, :word_count, :notes, :attachment, :user, :essay, :agreement, :discountcode, :spam)
   end
 end
