@@ -1,7 +1,7 @@
 <h2 class="mb-5">Submission Details</h2>
 
 <div class="mini-container">
-  <h5 class="text-center mb-2"><strong>Student</strong></h5>
+  <h5 class="text-center mb-2"><strong>Student Information</strong></h5>
   <p>Student name: <strong><%= @essay.student_name %></strong></p>
   <p>Email: <strong><%= @essay.email %></strong></p>
   <p>Applicant type: <strong><%= @essay.applicant_type %></strong></p>
@@ -9,7 +9,7 @@
 </div>
 
 <div class="mini-container">
-  <h5 class="text-center mb-2"><strong>Essay</strong></h5>
+  <h5 class="text-center mb-2"><strong>Essay Information</strong></h5>
    <p>Essay prompt: <strong><%= @essay.prompt %> (<%= @essay.word_count %> words)</strong></p>
    <p>University applying to:
     <% if @essay.university_applying == "" %>
@@ -30,7 +30,7 @@
 </div>
 
 <div class="mini-container mb-5">
-  <h5 class="text-center mb-2"><strong>Status</strong></h5>
+  <h5 class="text-center mb-2"><strong>Essay Status</strong></h5>
 
   <p class="mb-3">Status: <strong><%= @essay.essay_status %>  <% if @essay.assigned == true %>
     (Editor: <%= @essay.reviewer_name %>)
@@ -88,7 +88,7 @@
     </tbody>
   </table>
   <p>Next Step: <% if @essay.completed? %>
-            Done!
+            <strong>Done!</strong>
           <% elsif @essay.next_step == "Assign editor" %>
             <strong><%= link_to @essay.next_step, edit_essay_path(@essay) %>
           <% else %>

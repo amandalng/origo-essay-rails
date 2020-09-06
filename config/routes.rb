@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources :essays, only: [:new, :create, :edit, :update] do
     collection do
       get 'pricing'
+      get 'complete'
     end
     member do
       get 'confirmation'
