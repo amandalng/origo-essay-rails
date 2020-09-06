@@ -83,6 +83,10 @@ class Essay < ApplicationRecord
     created_at.strftime("%e %B, %Y")
   end
 
+  def date_submitted_filename
+    created_at.strftime("%Y%m%d")
+  end
+
   def payment_deadline
     (created_at + 2.days).strftime("%e %B, %Y")
   end
