@@ -1,30 +1,21 @@
-<h5 class="text-center header mb-3"><strong>Thanks for trusting us with your essay! &#128522;</strong></h5>
+<h4 class="text-center header mb-3">Thanks for trusting us with your essay! &#128522;</h4>
 <p class="text-center mb-5">Please see your submission details below. Your essay is currently being processed, and we'll get back to you within 24 hours with an email sharing payment details and instructions.</p>
 
-
 <h5 class="mb-3 text-center"><strong>Submission Details</strong></h5>
-<p class="mb-0"><strong>Student name</strong>: <%= @essay.student_name %></p>
-<p class="mb-0"><strong>Email</strong>: <%= @essay.email %></p>
-<p class="mb-0"><strong>Applicant type</strong>: <%= @essay.applicant_type %></p>
-<p class="mb-0"><strong>Country Applying To</strong>: <%= @essay.country_applying %></p>
+<p class="mb-0">Student name: <strong><%= @essay.student_name %></strong></p>
+<p class="mb-0">Email: <strong><%= @essay.email %></strong></p>
+<p class="mb-0">Applicant type: <strong><%= @essay.applicant_type %></strong></p>
+<p class="mb-0">Country Applying To: <strong><%= @essay.country_applying %></strong></p>
 <% if @essay.university_applying.present? %>
-  <p class="mb-0"><strong>University Applying To</strong>: <%= @essay.university_applying %></p>
+<p class="mb-0">University Applying To: <strong><%= @essay.university_applying %></strong></p>
 <% end %>
 <% if @essay.program_applying.present? %>
-  <p class="mb-0"><strong>Program Applying To</strong>: <%= @essay.program_applying %></p>
+<p class="mb-0">Program Applying To: <strong><%= @essay.program_applying %></strong></p>
 <% end %>
 
-<p class="mb-0 mt-3"><strong>Essay prompt</strong>: <%= @essay.prompt %></p>
-<p class="mb-0"><strong>Essay word count</strong>: <%= @essay.word_count %> words</p>
-<p><strong>Price</strong>: USD <%= @essay.essay_price %></p>
+<p class="mb-0 mt-3">Essay prompt: <strong><%= @essay.prompt %></strong></p>
+<p class="mb-0">Essay word count: <strong><%= @essay.word_count %> words</strong></p>
+<p>Price: <strong>USD <%= @essay.essay_price %></strong></p>
 
 <p class="text-center"><strong>Essay:</strong></p>
-<p><%= simple_format(strip_tags(@essay.essay)) %></p>
-
-<div class="mt-5 center">
-  <%= link_to "< back to Home", root_path %>
-</div>
-
-<div class="center">
-  <%#= link_to "Back to Home", root_path, class: "main-btn" %>
-</div>
+<p class="mb-4"><%= simple_format(strip_tags(@essay.essay)) %></p>

@@ -31,6 +31,9 @@
     <% else %>
       <strong><%= @essay.program_applying %></strong></p>
     <% end %>
+  <p>Essay submitted: <strong><%= link_to(download_essay_path(@essay, format: :docx)) do %>
+    Download <i class="fas fa-download"></i>
+  <% end %></strong></p>
   <p class="mt-2">Price: <strong>$<%= @essay.essay_price %></strong></p>
   <% if @essay.discountcode.present? && @essay.discountcode != "" %>
     <p class="mt-2">Discount Code: <strong><%= @essay.discountcode %></strong></p>
