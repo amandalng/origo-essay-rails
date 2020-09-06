@@ -25,7 +25,7 @@ class EssaysController < ApplicationController
 
   def index
     if current_user.administrator == true
-      @essays = Essay.where(completed: false, spam: false || nil).sort_by &:created_at
+      @essays = Essay.where(spam: [false, nil], completed: false).sort_by &:created_at
       respond_to do |format|
         format.html
         format.xlsx {
@@ -46,7 +46,7 @@ class EssaysController < ApplicationController
   end
 
   def complete
-    @essays = Essay.where(completed: true, spam: false || nil)
+    @essays = Essay.where(completed: true)
   end
 
   def spam
