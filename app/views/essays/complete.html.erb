@@ -17,7 +17,6 @@
         <th scope="col">Editor</th>
       <% end %>
       <th scope="col">Status</th>
-      <th scope="col">Next Step</th>
     </tr>
   </thead>
   <tbody>
@@ -54,15 +53,6 @@
 
         <td class="align-middle">
           <%= essay.essay_status %>
-        </td>
-        <td class="align-middle">
-          <% if essay.completed? %>
-            Done!
-          <% elsif essay.next_step == "Assign editor" %>
-            <%= link_to essay.next_step, edit_essay_path(essay) %>
-          <% else %>
-            <%= link_to essay.next_step, essay_path(essay), :method => :patch, data: { confirm: "Are you sure?" } %>
-          <% end %>
         </td>
       </tr>
     <% end %>
