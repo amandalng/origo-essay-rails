@@ -1,5 +1,5 @@
 .main-btn {
-  padding: 8px 20px;
+  padding: 8px 32px;
   background-color: $dark-teal;
   opacity: 90%;
   color: white;
@@ -13,19 +13,20 @@
 }
 
 .banner-btn {
-  padding: 8px 20px;
+  padding: 8px 32px;
   background-color: $dark-teal;
-  color: $light-teal;
+  color: white;
   border-radius: 50px;
 }
 
 .banner-btn:hover {
   text-decoration: none;
-  color: white;
+  color: $light-teal;
+  opacity: 100%;
 }
 
 .secondary-btn {
-  padding: 8px 20px;
+  padding: 8px 32px;
   background-color: $gray;
   opacity: 90%;
   color: white;
