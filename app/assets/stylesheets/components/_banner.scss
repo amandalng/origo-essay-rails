@@ -1,7 +1,7 @@
 .banner {
   background-size: cover;
   background-position: center;
-  padding: 20vh 0;
+  padding: 18vh 0;
   margin-top: 48px;
   height: calc(100vh - 48px);
   position: relative;
@@ -9,7 +9,7 @@
 
 @media(max-width: 768px) {
   .banner {
-    padding: 5vh 0;
+    padding: 4vh 0;
   }
 }
 
@@ -17,7 +17,7 @@
   margin: 0;
   color: white;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  font-size: 32px;
+  font-size: 28px;
   font-weight: bold;
 }
 
@@ -25,38 +25,38 @@
   margin: 0;
   color: white;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  font-size: 28px;
+  font-size: 24px;
 }
 
 .banner h3 {
   margin: 0;
   color: white;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  font-size: 24px;
+  font-size: 20px;
 }
 
 .banner h4 {
   margin: 0;
   color: white;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  font-size: 20px;
+  font-size: 18px;
 }
 
 .banner p {
-  font-size: 20px;
+  font-size: 18px;
   color: white;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
 
 .banner ul {
-  font-size: 20px;
+  font-size: 18px;
   color: white;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
 
 .arrow {
   color: white;
-  font-size: 20px;
+  font-size: 18px;
   position: absolute;
   bottom: 20px;
   left: 50%;
