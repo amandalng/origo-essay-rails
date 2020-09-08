@@ -21,14 +21,12 @@
 <%= f.input :agreement, as: :boolean, label: " I agree that Origo Edu will not write my essay for me." %>
 
 <div class="center">
-  <div>
-    <div class="d-flex justify-content-center price-tag mt-4">
-      <p>Price: USD&nbsp;</p>
-      <p class="price">0</p>
-    </div>
-    <p>** Note: This is NOT the discounted price. We will send you an invoice with the final price if you provided a valid discount code. **</p>
+  <div class="d-flex justify-content-center price-tag mt-4">
+    <p>Price: USD&nbsp;</p>
+    <p class="price">0</p>
   </div>
 </div>
+<p>** Note: This is NOT the discounted price. We will send you an invoice with the final price if you provided a valid discount code. **</p>
 
 <div class="center">
   <%= link_to "See Pricing Details", pricing_essays_path, class: "pricing-details mt-2" %>
