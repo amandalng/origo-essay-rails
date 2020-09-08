@@ -16,7 +16,7 @@
 <p class="mb-0 mt-3">Essay prompt: <strong><%= @essay.prompt %></strong></p>
 <p class="mb-0">Essay word count: <strong><%= @essay.word_count %> words</strong></p>
 <p>Price: <strong>USD <%= @essay.essay_price %></strong></p>
-<p class="text-center mt-2">** Note: This does NOT reflect the discounted price. We will send you an invoice with an adjusted price if you provided a valid discount code. **</p>
+<p>** Note: This does <strong>not</strong> reflect the discounted price. We will send you an invoice with an adjusted price if you provided a valid discount code. **</p>
 
 <p class="text-center"><strong>Essay:</strong></p>
 <p class="mb-4"><%= simple_format(strip_tags(@essay.essay)) %></p>
