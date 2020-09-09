@@ -15,7 +15,7 @@ class EssayMailer < ApplicationMailer
     @essay = params[:essay]
     attachments["#{@essay.date_submitted_filename}_#{@essay.student_name}.docx"] = {
       :mime_type => 'application/docx',
-      :content => @essay.essay
+      :content => @essay.essay,
       :mode => 'rb'
     }
     mail(
@@ -35,7 +35,7 @@ class EssayMailer < ApplicationMailer
 
     attachments["#{@essay.date_submitted_filename}_#{@essay.student_name}.docx"] = {
       :mime_type => 'application/docx',
-      :content => @essay.essay
+      :content => @essay.essay,
       :mode => 'rb'
     }
     mail(
