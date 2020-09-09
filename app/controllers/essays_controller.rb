@@ -58,7 +58,7 @@ class EssaysController < ApplicationController
 
     respond_to do |format|
       format.docx {
-        response.headers["Content-Disposition"] = "attachment; filename=\"#{@essay.date_submitted_filename}_#{@essay.student_name}.doc\""
+        response.headers["Content-Disposition"] = "attachment; filename=\"#{@essay.date_submitted_filename}_#{@essay.student_name}.docx\""
       }
     end
   end
