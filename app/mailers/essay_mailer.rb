@@ -13,9 +13,10 @@ class EssayMailer < ApplicationMailer
       end
     end
     @essay = params[:essay]
-    attachments["#{@essay.date_submitted_filename}_#{@essay.student_name}.docx\""] = {
+    attachments["#{@essay.date_submitted_filename}_#{@essay.student_name}.docx"] = {
       :mime_type => 'application/docx',
       :content => @essay.essay
+      :mode => 'rb'
     }
     mail(
       to: @admin_emails,
@@ -31,11 +32,11 @@ class EssayMailer < ApplicationMailer
     #   end
     # end
     @essay = params[:essay]
-    # @essaydoc = Caracal::Document.new("#{@essay.date_submitted_filename}_#{@essay.student_name}.docx\"")
 
-    attachments["#{@essay.date_submitted_filename}_#{@essay.student_name}.docx\""] = {
+    attachments["#{@essay.date_submitted_filename}_#{@essay.student_name}.docx"] = {
       :mime_type => 'application/docx',
       :content => @essay.essay
+      :mode => 'rb'
     }
     mail(
       to: @essay.email,
@@ -51,9 +52,10 @@ class EssayMailer < ApplicationMailer
       end
     end
     @essay = params[:essay]
-    attachments["#{@essay.date_submitted_filename}_#{@essay.student_name}.docx\""] = {
+    attachments["#{@essay.date_submitted_filename}_#{@essay.student_name}.docx"] = {
       :mime_type => 'application/docx',
-      :content => @essay.essay
+      :content => @essay.essay,
+      :mode => 'rb'
     }
     mail(
       to: @essay.user.email,
