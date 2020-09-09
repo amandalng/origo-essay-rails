@@ -19,7 +19,7 @@
   <li style='margin: 20px;'>Essay prompt: <strong><%= @essay.prompt %></strong></li>
   <li style='margin: 20px;'>Essay word count: <strong><%= @essay.word_count %></strong></li>
   <li style='margin: 20px;'>Price: <strong>USD <%= @essay.essay_price %></strong></li>
-  <li style='margin: 20px;'>Essay: <strong>Download <%= link_to "here", download_essay_path(essay, format: :docx) %></strong></li>
+  <li style='margin: 20px;'>Essay: <strong>Download <%= link_to "here", download_essay_path(@essay, format: :docx) %></strong></li>
 </ul>
 
 <p style='margin: 20px;'>Please note this does not reflect the discounted price. We will send you an invoice with an adjusted price if you provided a valid discount code.</p>
