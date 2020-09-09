@@ -24,12 +24,12 @@ class EssayMailer < ApplicationMailer
   end
 
   def confirmation_and_payment
-    @admin_emails = []
-    User.all.each do |user|
-      if user.administrator == true
-        @admin_emails << user.email
-      end
-    end
+    # @admin_emails = []
+    # User.all.each do |user|
+    #   if user.administrator == true
+    #     @admin_emails << user.email
+    #   end
+    # end
     @essay = params[:essay]
     attachments["#{@essay.date_submitted_filename}_#{@essay.student_name}.docx"] = {
       :mime_type => 'application/docx',
@@ -37,7 +37,6 @@ class EssayMailer < ApplicationMailer
     }
     mail(
       to: @essay.email,
-      bcc: @admin_emails,
       subject: "Origo Essays: We have received your submission!"
       )
   end
