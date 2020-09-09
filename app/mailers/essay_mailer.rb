@@ -16,7 +16,7 @@ class EssayMailer < ApplicationMailer
     attachments["#{@essay.date_submitted_filename}_#{@essay.student_name}.docx"] = {
       :mime_type => 'application/docx',
       :content => @essay.essay,
-      :mode => 'rb'
+      :encoding => 'BINARY'
     }
     mail(
       to: @admin_emails,
@@ -36,7 +36,7 @@ class EssayMailer < ApplicationMailer
     attachments["#{@essay.date_submitted_filename}_#{@essay.student_name}.docx"] = {
       :mime_type => 'application/docx',
       :content => @essay.essay,
-      :mode => 'rb'
+      :encoding => 'BINARY'
     }
     mail(
       to: @essay.email,
@@ -55,7 +55,7 @@ class EssayMailer < ApplicationMailer
     attachments["#{@essay.date_submitted_filename}_#{@essay.student_name}.docx"] = {
       :mime_type => 'application/docx',
       :content => @essay.essay,
-      :mode => 'rb'
+      :encoding => 'BINARY'
     }
     mail(
       to: @essay.user.email,
