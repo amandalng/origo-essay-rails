@@ -33,11 +33,13 @@ class EssayMailer < ApplicationMailer
     # end
     @essay = params[:essay]
 
-    attachments["#{@essay.date_submitted_filename}_#{@essay.student_name}.docx"] = {
-      :mime_type => 'application/docx',
-      :content => @essay.essay,
-      :encoding => 'BINARY'
-    }
+    attachments["#{@essay.date_submitted_filename}_#{@essay.student_name}.docx"] = File.read(download_essay_path(@essay, format: :docx))
+
+    # attachments["#{@essay.date_submitted_filename}_#{@essay.student_name}.docx"] = {
+    #   :mime_type => 'application/docx',
+    #   :content => @essay.essay,
+    #   :encoding => 'BINARY'
+    # }
     mail(
       to: @essay.email,
       subject: "Origo Essays: We have received your submission!"
